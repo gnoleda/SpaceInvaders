@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdelongFinalProject", "AdelongFinalProject\AdelongFinalProject.csproj", "{B21D0FA2-7A70-4F55-AB1D-5B35B72038F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B21D0FA2-7A70-4F55-AB1D-5B35B72038F7}.Debug|x86.ActiveCfg = Debug|x86
+		{B21D0FA2-7A70-4F55-AB1D-5B35B72038F7}.Debug|x86.Build.0 = Debug|x86
+		{B21D0FA2-7A70-4F55-AB1D-5B35B72038F7}.Release|x86.ActiveCfg = Release|x86
+		{B21D0FA2-7A70-4F55-AB1D-5B35B72038F7}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1457B8EF-F08D-4685-87B2-F4C20D012AC2}
+	EndGlobalSection
+EndGlobal
