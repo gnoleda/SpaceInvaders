@@ -60,7 +60,6 @@ namespace AdelongFinalProject
                 }
             }
 
-
             base.Draw(gameTime);
         }
     }

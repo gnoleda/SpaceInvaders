@@ -15,14 +15,17 @@ namespace AdelongFinalProject
         SpriteBatch spriteBatch;
 
         private StartScene startScene;
-        private Texture2D startBackground, title;
+        private ActionScene actionScene;
+        private AboutScene aboutScene;
+
+        private Texture2D startBackground, title, actionBackground;
         private Vector2 titlePos;
-        //private SoundEffect menuTheme;
-        private Song menuTheme;
+        private Song menuTheme, actionTheme;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
         }
 
@@ -53,7 +56,7 @@ namespace AdelongFinalProject
                 }
             }
         }
-
+        
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -67,9 +70,12 @@ namespace AdelongFinalProject
 
             //instantiate scenes
             startScene = new StartScene(this, spriteBatch);
+            actionScene = new ActionScene(this, spriteBatch);
+            aboutScene = new AboutScene(this, spriteBatch);
 
             //backgrounds and images
             startBackground = Content.Load<Texture2D>("images/background");
+            actionBackground = Content.Load<Texture2D>("images/actionBackground");
             title = Content.Load<Texture2D>("images/title");
 
             //positions
@@ -77,13 +83,15 @@ namespace AdelongFinalProject
 
             //sounds
             menuTheme = Content.Load<Song>("sounds/menuTheme");
-            MediaPlayer.Play(menuTheme);
-            MediaPlayer.IsRepeating = true;
+            actionTheme = Content.Load<Song>("sounds/actionTheme");
 
             Components.Add(startScene);
+            Components.Add(actionScene);
+            Components.Add(aboutScene);
 
             //enable only one start scene
             startScene.Show();
+            StartMusic();
         }
 
         /// <summary>
@@ -95,14 +103,22 @@ namespace AdelongFinalProject
             // TODO: Unload any non ContentManager content here
         }
 
-        //public void PlayMusic()
-        //{
-        //    if(startScene.Enabled)
-        //    {
-        //        MediaPlayer.IsRepeating = true;
-        //        MediaPlayer.Play(menuTheme);
-        //    }
-        //}
+        public void StartMusic()
+        {
+            if(startScene.Enabled || aboutScene.Enabled)
+            {
+                MediaPlayer.Stop();
+                MediaPlayer.Play(menuTheme);
+            }
+            else if (actionScene.Enabled)
+            {
+                MediaPlayer.Stop();
+                MediaPlayer.Play(actionTheme);
+            }
+
+            MediaPlayer.IsRepeating = true;
+        }
+
 
         /// <summary>
         /// Allows the game to run logic such as updating the world,
@@ -112,9 +128,45 @@ namespace AdelongFinalProject
         protected override void Update(GameTime gameTime)
         {
             //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                //Exit();
+            //Exit();
 
             // TODO: Add your update logic here
+            int selectedIndex = 0;
+            KeyboardState ks = Keyboard.GetState();
+
+            if(startScene.Enabled)
+            {
+                //check which menu item selected
+                selectedIndex = startScene.Menu.SelectedIndex;
+
+                if (selectedIndex == 0 && ks.IsKeyDown(Keys.Enter))
+                {
+                    HideAllScenes();
+                    actionScene.Show();
+                    StartMusic();
+                }
+                else if(selectedIndex == 2 && ks.IsKeyDown(Keys.Enter))
+                {
+                    HideAllScenes();
+                    aboutScene.Show();
+                    StartMusic();
+                }
+                else if(selectedIndex == 3 && ks.IsKeyDown(Keys.Enter))
+                {
+                    Exit();
+                }
+            }
+            if (startScene.Enabled && ks.IsKeyDown(Keys.Escape))
+            {
+                HideAllScenes();
+                startScene.Show();
+            }
+            if (ks.IsKeyDown(Keys.Escape) && !startScene.Enabled)
+            {
+                HideAllScenes();
+                startScene.Show();
+                StartMusic();
+            }
 
             base.Update(gameTime);
         }
@@ -128,14 +180,20 @@ namespace AdelongFinalProject
             //GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
-            
+            spriteBatch.Begin();            
 
             if(startScene.Enabled)
             {
                 spriteBatch.Draw(startBackground, Vector2.Zero, Color.White);
                 spriteBatch.Draw(title, titlePos, Color.White);
-
+            }
+            else if (actionScene.Enabled)
+            {
+                spriteBatch.Draw(actionBackground, Vector2.Zero, Color.White);
+            }
+            else if (aboutScene.Enabled)
+            {
+                spriteBatch.Draw(startBackground, Vector2.Zero, Color.White);
             }
 
             spriteBatch.End();
