@@ -72,3 +72,4 @@ C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalP
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\sounds\actionTheme.wma
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\sounds\actionTheme.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\tank.xnb
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\shipLaser.xnb

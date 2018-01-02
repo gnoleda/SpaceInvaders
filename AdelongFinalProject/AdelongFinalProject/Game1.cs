@@ -17,6 +17,7 @@ namespace AdelongFinalProject
         private StartScene startScene;
         private ActionScene actionScene;
         private AboutScene aboutScene;
+        private HelpScene helpScene;
 
         private Texture2D startBackground, title, actionBackground;
         private Vector2 titlePos;
@@ -88,6 +89,7 @@ namespace AdelongFinalProject
             Components.Add(startScene);
             Components.Add(actionScene);
             Components.Add(aboutScene);
+            Components.Add(helpScene);
 
             //enable only one start scene
             startScene.Show();
@@ -105,9 +107,8 @@ namespace AdelongFinalProject
 
         public void StartMusic()
         {
-            if(startScene.Enabled || aboutScene.Enabled)
+            if(startScene.Enabled || aboutScene.Enabled || helpScene.Enabled)
             {
-                MediaPlayer.Stop();
                 MediaPlayer.Play(menuTheme);
             }
             else if (actionScene.Enabled)
@@ -145,6 +146,12 @@ namespace AdelongFinalProject
                     actionScene.Show();
                     StartMusic();
                 }
+                else if (selectedIndex == 1 && ks.IsKeyDown(Keys.Enter))
+                {
+                    HideAllScenes();
+                    helpScene.Show();
+                    StartMusic();
+                }
                 else if(selectedIndex == 2 && ks.IsKeyDown(Keys.Enter))
                 {
                     HideAllScenes();
@@ -167,6 +174,7 @@ namespace AdelongFinalProject
                 startScene.Show();
                 StartMusic();
             }
+            
 
             base.Update(gameTime);
         }
@@ -192,6 +200,10 @@ namespace AdelongFinalProject
                 spriteBatch.Draw(actionBackground, Vector2.Zero, Color.White);
             }
             else if (aboutScene.Enabled)
+            {
+                spriteBatch.Draw(startBackground, Vector2.Zero, Color.White);
+            }
+            else if (helpScene.Enabled)
             {
                 spriteBatch.Draw(startBackground, Vector2.Zero, Color.White);
             }

@@ -15,18 +15,19 @@ namespace AdelongFinalProject
         private SpriteFont spriteFont;
         private Vector2 pos;
         private string message;
-        private Color color;
+        //private Color color;
 
         public SimpleString(Game game,
             SpriteBatch spriteBatch,
-            SpriteFont spriteFont
+            Vector2 pos,
+            string message
             ) : base(game)
         {
             this.spriteBatch = spriteBatch;
-            this.spriteFont = spriteFont;
-            pos = new Vector2(Shared.stage.X  / 2, Shared.stage.Y /2); ;
-            message = "Made by Aubrey Delong";
-            color = Color.White;
+            spriteFont = game.Content.Load<SpriteFont>("fonts/menuFont");
+            this.message = message;
+            this.pos = pos;
+            //color = Color.White;
         }
 
         public override void Update(GameTime gameTime)
@@ -38,7 +39,7 @@ namespace AdelongFinalProject
         {
             spriteBatch.Begin();
 
-            spriteBatch.DrawString(spriteFont, message,pos, color);
+            spriteBatch.DrawString(spriteFont, message,pos, Color.White);
 
             spriteBatch.End();
             base.Draw(gameTime);

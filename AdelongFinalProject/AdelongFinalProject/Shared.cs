@@ -12,6 +12,7 @@ namespace AdelongFinalProject
     public class Shared
     {
         public static Vector2 stage;
-        //public static SpriteFont regularFont;
+        public static Vector2 shipPos;
+        public static Texture2D shipTex;
     }
 }

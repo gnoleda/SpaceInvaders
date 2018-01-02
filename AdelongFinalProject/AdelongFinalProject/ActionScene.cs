@@ -12,22 +12,35 @@ namespace AdelongFinalProject
     public class ActionScene : GameScene
     {
         private SpriteBatch spriteBatch;
-        private Texture2D tankTex;
-        private Tank tank;
+        private Texture2D shipLaserTex;
+        private Ship ship;
+        private Laser shipLaser;
 
         public ActionScene(Game game,
             SpriteBatch spriteBatch) : base(game)
         {
             this.spriteBatch = spriteBatch;
             //sprites
-            tankTex = game.Content.Load<Texture2D>("images/tank");
-            tank = new Tank(game, spriteBatch, tankTex);
+            Shared.shipTex = game.Content.Load<Texture2D>("images/tank");
+            ship = new Ship(game, spriteBatch, Shared.shipTex);
 
-            this.Components.Add(tank);
+            shipLaserTex = game.Content.Load<Texture2D>("images/shipLaser");
+            shipLaser = new Laser(game, spriteBatch, shipLaserTex);
+
+            this.Components.Add(ship);
+            this.Components.Add(shipLaser);
         }
 
         public override void Update(GameTime gameTime)
         {
+            KeyboardState ks = Keyboard.GetState();
+            shipLaser.Hide();
+
+            if(ks.IsKeyDown(Keys.Space))
+            {
+                shipLaser.Show();
+            }
+
             base.Update(gameTime);
         }
 

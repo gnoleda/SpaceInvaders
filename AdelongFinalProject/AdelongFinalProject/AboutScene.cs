@@ -13,14 +13,16 @@ namespace AdelongFinalProject
     {
         private SpriteBatch spriteBatch;
         private SimpleString aboutString;
+        string message;
+        private Vector2 pos;
 
         public AboutScene(Game game,
             SpriteBatch spriteBatch) : base(game)
         {
             this.spriteBatch = spriteBatch;
-            SpriteFont regularFont = game.Content.Load<SpriteFont>("fonts/menuFont");
-
-            aboutString = new SimpleString(game, spriteBatch, regularFont);
+            message = "Made by Aubrey Delong";
+            pos = new Vector2(Shared.stage.X / 2, Shared.stage.Y / 2);
+            aboutString = new SimpleString(game, spriteBatch, pos, message);
 
             this.Components.Add(aboutString);
         }
