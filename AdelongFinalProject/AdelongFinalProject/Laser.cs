@@ -26,6 +26,14 @@ namespace AdelongFinalProject
             speed = new Vector2(0, 10);
         }
 
+        public Laser(Game game, SpriteBatch spriteBatch) : base(game)
+        {
+            this.spriteBatch = spriteBatch;
+            this.tex = ((Game1)game).Content.Load<Texture2D>("images/shipLaser");
+            pos = new Vector2(Shared.shipPos.X + Shared.shipTex.Width / 2 - tex.Width / 2, Shared.shipPos.Y - tex.Height);
+            speed = new Vector2(0, 10);
+        }
+
         public virtual void Show()
         {
             this.Enabled = true;
@@ -42,10 +50,10 @@ namespace AdelongFinalProject
         {
             KeyboardState ks = Keyboard.GetState();
             
-            if (ks.IsKeyDown(Keys.Space) && this.Enabled) 
-            {
+            //if (ks.IsKeyDown(Keys.Space) && this.Enabled) 
+          //  {
                 pos -= speed;
-            }
+          //  }
             base.Update(gameTime);
         }
 

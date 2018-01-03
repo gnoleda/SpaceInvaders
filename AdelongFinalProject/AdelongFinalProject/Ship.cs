@@ -15,11 +15,17 @@ namespace AdelongFinalProject
         //public Vector2 shipPos;
         private Vector2 speed;
         private Texture2D tex;
+        private Game1 game;
+
+        private KeyboardState oldState;
+
 
         public Ship(Game game,
             SpriteBatch spriteBatch,
-            Texture2D tex) : base(game)
+            Texture2D tex
+            ) : base(game)
         {
+            this.game = (Game1)game;
             this.spriteBatch = spriteBatch;
             this.tex = tex;
             //pos = new Vector2(Shared.stage.X / 2 - tex.Width /2, 0);
@@ -49,6 +55,18 @@ namespace AdelongFinalProject
                     Shared.shipPos.X = 0;
                 }
             }
+           // KeyboardState ks = Keyboard.GetState();
+            //shipLaser.Hide();
+
+            if (ks.IsKeyDown(Keys.Space) && oldState.IsKeyUp(Keys.Space))
+            {
+                //  shipLaser.Show();
+                Laser l = new Laser(game, spriteBatch);
+                l.Show();
+                game.Components.Add(l);
+            }
+
+            oldState = ks;
 
             base.Update(gameTime);
         }

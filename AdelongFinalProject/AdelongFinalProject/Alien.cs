@@ -29,6 +29,7 @@ namespace AdelongFinalProject
 
         public override void Update(GameTime gameTime)
         {
+            //switch images of alien in update..
             base.Update(gameTime);
         }
 

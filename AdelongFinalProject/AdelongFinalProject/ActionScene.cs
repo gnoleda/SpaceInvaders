@@ -39,14 +39,7 @@ namespace AdelongFinalProject
 
         public override void Update(GameTime gameTime)
         {
-            KeyboardState ks = Keyboard.GetState();
-            shipLaser.Hide();
-
-            if(ks.IsKeyDown(Keys.Space))
-            {
-                shipLaser.Show();
-            }
-
+           
             base.Update(gameTime);
         }
 
