@@ -73,6 +73,7 @@ namespace AdelongFinalProject
             startScene = new StartScene(this, spriteBatch);
             actionScene = new ActionScene(this, spriteBatch);
             aboutScene = new AboutScene(this, spriteBatch);
+            helpScene = new HelpScene(this, spriteBatch);
 
             //backgrounds and images
             startBackground = Content.Load<Texture2D>("images/background");

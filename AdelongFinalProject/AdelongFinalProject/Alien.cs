@@ -18,14 +18,13 @@ namespace AdelongFinalProject
 
         public Alien(Game game,
             SpriteBatch spriteBatch,
-            Texture2D tex,
-            Vector2 pos,
-            Vector2 speed) : base(game)
+            Texture2D tex
+            /*Vector2 speed*/) : base(game)
         {
             this.spriteBatch = spriteBatch;
             this.tex = tex;
-            this.pos = pos;
-            this.speed = speed;
+            pos = new Vector2(0, 0);
+            //this.speed = speed;
         }
 
         public override void Update(GameTime gameTime)
@@ -35,6 +34,11 @@ namespace AdelongFinalProject
 
         public override void Draw(GameTime gameTime)
         {
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(tex, pos, Color.White);
+
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
