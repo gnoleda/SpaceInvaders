@@ -15,7 +15,8 @@ namespace AdelongFinalProject
         private Texture2D shipLaserTex;
         private Ship ship;
         private Laser shipLaser;
-        private Alien alien1;
+        //private Alien alien1;
+        //private int delay = 20;
 
         public ActionScene(Game game,
             SpriteBatch spriteBatch) : base(game)
@@ -29,12 +30,12 @@ namespace AdelongFinalProject
             shipLaser = new Laser(game, spriteBatch, shipLaserTex);
 
             //alien1
-            Shared.alien1Tex = game.Content.Load<Texture2D>("images/alien1");
-            alien1 = new Alien(game, spriteBatch, Shared.alien1Tex);
+            //Shared.alien1Tex = game.Content.Load<Texture2D>("images/alien1");
+            //alien1 = new Alien(game, spriteBatch);
 
             this.Components.Add(ship);
             this.Components.Add(shipLaser);
-            this.Components.Add(alien1);
+            //this.Components.Add(alien1);
         }
 
         public override void Update(GameTime gameTime)
