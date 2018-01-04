@@ -13,6 +13,6 @@ namespace AdelongFinalProject
     {
         public static Vector2 stage;
         public static Vector2 shipPos;
-        public static Texture2D shipTex, alien1Tex;
+        public static Texture2D shipTex, alien1Tex, alien2Tex, alien3Tex;
     }
 }

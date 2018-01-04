@@ -16,8 +16,7 @@ namespace AdelongFinalProject
         private Vector2 pos;
         private Vector2 speed;
         private Vector2 dimension;
-        private Game1 game;
-
+        //private Game1 game;
 
         private List<Rectangle> frames;
         private List<Texture2D> aliens;
@@ -29,29 +28,21 @@ namespace AdelongFinalProject
         private int delay;
         private int delayCounter;
 
-        //create aliens
-        private const int NUM_ALIENS = 5;
-        private Vector2 alienPos;
-
         public Alien(Game game,
             SpriteBatch spriteBatch,
-            Vector2 pos
-            //Texture2D tex
-            //int delay
+            Vector2 pos,
+            Texture2D tex,
+            int delay
             /*Vector2 speed*/) : base(game)
         {
-            this.game = (Game1)game;
+            //this.game = (Game1)game;
             this.spriteBatch = spriteBatch;
-            //this.tex = tex;
-            tex = ((Game1)game).Content.Load<Texture2D>("images/alien1");
-            delay = 20;
-            //pos = new Vector2(0, 0);
-            
+            this.pos = pos;
+            this.tex = tex;
+            this.delay = delay;            
             //this.speed = speed;
-
             dimension = new Vector2(tex.Width / COL, tex.Height / ROW);
-
-            CreateMultipleAlien();
+            
             this.startAnimation();
             CreateFrames();
 
@@ -96,23 +87,7 @@ namespace AdelongFinalProject
                 }
             }
         }
-
-        public void CreateMultipleAlien()
-        {
-            //aliens = new List<Texture2D>();
-
-            for (int i = 0; i <= NUM_ALIENS; i++)
-            {
-                alienPos = new Vector2(0, 0);
-                pos = alienPos;
-
-                Alien a = new Alien(game, spriteBatch, pos);
-                a.Show();
-                game.Components.Add(a);
-
-                alienPos.X = 5 + tex.Width;
-            }
-        }
+        //}
 
         public override void Update(GameTime gameTime)
         {
