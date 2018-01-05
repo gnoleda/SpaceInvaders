@@ -16,10 +16,14 @@ namespace AdelongFinalProject
         private Vector2 pos;
         private Vector2 speed;
         private Vector2 dimension;
+
         //private Game1 game;
 
-        private List<Rectangle> frames;
-        private List<Texture2D> aliens;
+        //private List<Rectangle> frames;
+        //private List<Texture2D> aliens;
+
+        private Rectangle alienRect;
+        //private Vector2 dimension;
 
         //create frames
         private int frameIndex = 0;
@@ -32,25 +36,20 @@ namespace AdelongFinalProject
             SpriteBatch spriteBatch,
             Vector2 pos,
             Texture2D tex,
-            int delay
-            /*Vector2 speed*/) : base(game)
+            int delay,
+            Vector2 speed) : base(game)
         {
             //this.game = (Game1)game;
             this.spriteBatch = spriteBatch;
             this.pos = pos;
             this.tex = tex;
-            this.delay = delay;            
-            //this.speed = speed;
+            this.delay = delay;
+            this.speed = speed;
             dimension = new Vector2(tex.Width / COL, tex.Height / ROW);
             
-            this.startAnimation();
+            this.Show();
             CreateFrames();
 
-        }
-        public void startAnimation()
-        {
-            this.Enabled = true;
-            this.Visible = true;
         }
 
         //public void stopAnimation()
@@ -72,7 +71,8 @@ namespace AdelongFinalProject
 
         private void CreateFrames()
         {
-            frames = new List<Rectangle>();
+            Shared.frames = new List<Rectangle>();
+            //List<Rectangle> alienList = new List<Rectangle>();
 
             for (int i = 0; i < ROW; i++)
             {
@@ -83,14 +83,28 @@ namespace AdelongFinalProject
                     //creates the rectangle:
                     Rectangle r = new Rectangle(x, y, (int)dimension.X, (int)dimension.Y);
                     //add to the frames
-                    frames.Add(r);
+                    Shared.frames.Add(r);                    
                 }
             }
         }
-        //}
+
+        public Rectangle getBound()
+        {
+            return new Rectangle((int)pos.X, (int)pos.Y, tex.Width, tex.Height);
+
+        }
 
         public override void Update(GameTime gameTime)
         {
+            //move aliens
+            this.pos += speed;
+            
+            if(pos.X >= Shared.stage.X)
+            {
+                Vector2 newPos = new Vector2(0, pos.Y += tex.Height*3 + Shared.ALIEN_SPACING);
+                pos = newPos;
+            }
+
             //switch images of alien in update..
             delayCounter++;
             if(delayCounter > delay)
@@ -104,15 +118,7 @@ namespace AdelongFinalProject
                     //stopAnimation();
                 }
                 delayCounter = 0;
-
-                ////change positions
-                ////it hits left side
-                //if(pos.X <= Shared.stage.X)
-                //{
-                //    pos = new Vector2()
-                //}
-                //pos = new Vector2(pos.X+5, pos.Y)
-                ////check to see if you hit wall..
+                
             }
 
             base.Update(gameTime);
@@ -122,7 +128,7 @@ namespace AdelongFinalProject
         {
             spriteBatch.Begin();
 
-            spriteBatch.Draw(tex, pos, frames[frameIndex],Color.White);
+            spriteBatch.Draw(tex, pos, Shared.frames[frameIndex],Color.White);
 
             spriteBatch.End();
             base.Draw(gameTime);

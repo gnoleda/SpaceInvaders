@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/shipLaser.png</SourceFile>
-  <SourceTime>2018-01-04T11:51:36-05:00</SourceTime>
-  <DestFile>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/bin/Windows/images/shipLaser.xnb</DestFile>
-  <DestTime>2018-01-04T17:10:27.0637075-05:00</DestTime>
+  <SourceFile>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/helpBackground.PNG</SourceFile>
+  <SourceTime>2018-01-04T17:53:17.3896129-05:00</SourceTime>
+  <DestFile>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/bin/Windows/images/helpBackground.xnb</DestFile>
+  <DestTime>2018-01-04T17:53:37.7589303-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

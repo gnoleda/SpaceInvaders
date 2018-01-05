@@ -46,6 +46,12 @@ namespace AdelongFinalProject
             this.Visible = false;
         }
 
+        public Rectangle getBound()
+        {
+            return new Rectangle((int)pos.X, (int)pos.Y, tex.Width, tex.Height);
+
+        }
+
         public override void Update(GameTime gameTime)
         {
             KeyboardState ks = Keyboard.GetState();

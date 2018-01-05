@@ -34,6 +34,12 @@ namespace AdelongFinalProject
             speed = new Vector2(4, 0);
         }
 
+        public Rectangle getBound()
+        {
+            return new Rectangle((int)Shared.shipPos.X, (int)Shared.shipPos.Y, tex.Width, tex.Height);
+
+        }
+
         public override void Update(GameTime gameTime)
         {
             KeyboardState ks = Keyboard.GetState();

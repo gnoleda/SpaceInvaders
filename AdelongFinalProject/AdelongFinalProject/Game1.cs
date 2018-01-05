@@ -19,14 +19,13 @@ namespace AdelongFinalProject
         private AboutScene aboutScene;
         private HelpScene helpScene;
 
-        private Texture2D startBackground, title, actionBackground;
-        private Vector2 titlePos;
+        private Texture2D startBackground, actionBackground, helpBackground;
         private Song menuTheme, actionTheme;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
         }
 
@@ -78,10 +77,7 @@ namespace AdelongFinalProject
             //backgrounds and images
             startBackground = Content.Load<Texture2D>("images/background");
             actionBackground = Content.Load<Texture2D>("images/actionBackground");
-            title = Content.Load<Texture2D>("images/title");
-
-            //positions
-            titlePos = new Vector2(Shared.stage.X /2  - title.Width / 2, 50);
+            helpBackground = Content.Load<Texture2D>("images/helpBackground");
 
             //sounds
             menuTheme = Content.Load<Song>("sounds/menuTheme");
@@ -194,7 +190,6 @@ namespace AdelongFinalProject
             if(startScene.Enabled)
             {
                 spriteBatch.Draw(startBackground, Vector2.Zero, Color.White);
-                spriteBatch.Draw(title, titlePos, Color.White);
             }
             else if (actionScene.Enabled)
             {
@@ -206,7 +201,7 @@ namespace AdelongFinalProject
             }
             else if (helpScene.Enabled)
             {
-                spriteBatch.Draw(startBackground, Vector2.Zero, Color.White);
+                spriteBatch.Draw(helpBackground, Vector2.Zero, Color.White);
             }
 
             spriteBatch.End();

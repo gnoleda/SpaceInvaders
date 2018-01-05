@@ -34,7 +34,7 @@ namespace AdelongFinalProject
             this.hilightFont = hilightFont;
             menuItems = menus.ToList();
 
-            position = new Vector2(Shared.stage.X / 2 - 30 , Shared.stage.Y / 2);
+            position = new Vector2(Shared.stage.X / 2 - 250,Shared.stage.Y / 2);
         }
 
         public override void Update(GameTime gameTime)
