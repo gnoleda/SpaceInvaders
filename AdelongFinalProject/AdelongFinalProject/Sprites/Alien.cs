@@ -45,6 +45,14 @@ namespace AdelongFinalProject
 
         }
 
+        public void StopAllAliens()
+        {
+            for (int i = 0; i < Shared.alienList.Count; i++)
+            {
+                Shared.alienList[i].Hide();
+            }
+        }
+
         public virtual void Show()
         {
             this.Enabled = true;

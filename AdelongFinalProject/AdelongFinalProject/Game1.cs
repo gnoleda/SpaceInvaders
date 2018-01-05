@@ -113,7 +113,6 @@ namespace AdelongFinalProject
                 MediaPlayer.Stop();
                 MediaPlayer.Play(actionTheme);
             }
-
             MediaPlayer.IsRepeating = true;
         }
 

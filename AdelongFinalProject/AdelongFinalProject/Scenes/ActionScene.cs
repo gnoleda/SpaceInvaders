@@ -58,6 +58,8 @@ namespace AdelongFinalProject
             //laser list
             Shared.laserList = new List<Laser>();
 
+            Shared.isGameOver = false;
+
             this.Components.Add(alienExplosion);
             this.Components.Add(ship);
             //this.Components.Add(shipLaser);

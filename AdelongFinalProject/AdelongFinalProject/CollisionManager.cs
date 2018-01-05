@@ -14,7 +14,7 @@ namespace AdelongFinalProject
     {
         private Alien alien;
         private Ship ship;
-        private SoundEffect hitSound,shipExplosion;
+        private SoundEffect hitSound;
         private Explosion explosion;
         private Game1 game;
 
@@ -29,8 +29,6 @@ namespace AdelongFinalProject
             this.ship = ship;
             this.hitSound = hitSound;
             this.explosion = explosion;
-
-            shipExplosion = ((Game1)game).Content.Load<SoundEffect>("sounds/explosionPlayer");
         }
 
         public override void Update(GameTime gameTime)
@@ -42,9 +40,14 @@ namespace AdelongFinalProject
                 {
                     if(Shared.alienList[i].getBound().Intersects(ship.getBound()))
                     {
-                        shipExplosion.Play();
-                        //game over!
-                        
+                        hitSound.Play();
+                        explosion.Position = new Vector2(Shared.alienList[i].getBound().X, ship.getBound().Y);
+                        explosion.StartAnimation();
+                        ship.Hide();
+                        alien.StopAllAliens();
+
+                        Shared.isGameOver = true;
+
                     }
                 }
             }

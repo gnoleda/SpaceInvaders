@@ -38,6 +38,18 @@ namespace AdelongFinalProject
             laserSound = game.Content.Load<SoundEffect>("sounds/shoot");
         }
 
+        public virtual void Show()
+        {
+            this.Enabled = true;
+            this.Visible = true;
+        }
+
+        public virtual void Hide()
+        {
+            this.Enabled = false;
+            this.Visible = false;
+        }
+
         public Rectangle getBound()
         {
             return new Rectangle((int)Shared.shipPos.X, (int)Shared.shipPos.Y, tex.Width, tex.Height);
