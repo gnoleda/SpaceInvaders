@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace AdelongFinalProject
 {
@@ -13,40 +14,69 @@ namespace AdelongFinalProject
     {
         private Alien alien;
         private Ship ship;
-        private Laser laser;
-        //private SoundEffect hitSound;
+        private SoundEffect hitSound,shipExplosion;
         private Explosion explosion;
+        private Game1 game;
 
         public CollisionManager(Game game,
             Alien alien,
             Ship ship,
-            Laser laser,
-            //SoundEffect hitSound,
+            SoundEffect hitSound,
             Explosion explosion
             ) : base(game)
         {
             this.alien = alien;
             this.ship = ship;
-            this.laser = laser;
-            //this.hitSound = hitSound;
+            this.hitSound = hitSound;
             this.explosion = explosion;
+
+            shipExplosion = ((Game1)game).Content.Load<SoundEffect>("sounds/explosionPlayer");
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (alien.getBound().Intersects(ship.getBound()))
+            //alien collision with ship
+            for (int i = 0; i < Shared.alienList.Count; i++)
             {
-                //game over!!
+                if(Shared.alienList[i].Enabled)
+                {
+                    if(Shared.alienList[i].getBound().Intersects(ship.getBound()))
+                    {
+                        shipExplosion.Play();
+                        //game over!
+                        
+                    }
+                }
             }
 
-            if (laser.getBound().Intersects(alien.getBound()))
+            //laser collision with alien
+            if(Shared.laserList != null)
             {
-                alien.Hide();
-                laser.Hide();
-                //hitSound.Play();
-                explosion.Position = new Vector2(alien.getBound().X, alien.getBound().Y);
-                explosion.startAnimation();
+                for (int i = 0; i < Shared.laserList.Count; i++)
+                {
+                    if(Shared.laserList[i].Enabled)
+                    {
+                        for (int j = 0; j < Shared.alienList.Count; j++)
+                        {
+                            if (Shared.alienList[j].Enabled)
+                            {
+                                if (Shared.laserList[i].getBound().Intersects(Shared.alienList[j].getBound()))
+                                {
+                                    hitSound.Play();
+                                    Shared.laserList[i].Hide();
+                                    Shared.alienList[j].Hide();
+                                    explosion.Position = new Vector2(Shared.alienList[j].getBound().X, Shared.alienList[j].getBound().Y);
+
+                                    explosion.StartAnimation();
+                                }
+                            }
+
+                        }
+                    }
+
+                }
             }
+           
             base.Update(gameTime);
         }
     }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace AdelongFinalProject
 {
@@ -16,6 +17,8 @@ namespace AdelongFinalProject
         private Vector2 speed;
         private Texture2D tex;
         private Game1 game;
+        private SoundEffect laserSound;
+
 
         private KeyboardState oldState;
 
@@ -32,6 +35,7 @@ namespace AdelongFinalProject
             //pos = new Vector2(Shared.stage.X - tex.Width / 2, Shared.stage.Y - tex.Height);
             Shared.shipPos = new Vector2(Shared.stage.X / 2 - tex.Width / 2, Shared.stage.Y - tex.Height);
             speed = new Vector2(4, 0);
+            laserSound = game.Content.Load<SoundEffect>("sounds/shoot");
         }
 
         public Rectangle getBound()
@@ -42,6 +46,7 @@ namespace AdelongFinalProject
 
         public override void Update(GameTime gameTime)
         {
+
             KeyboardState ks = Keyboard.GetState();
             if (ks.IsKeyDown(Keys.Right))
             {
@@ -66,10 +71,11 @@ namespace AdelongFinalProject
 
             if (ks.IsKeyDown(Keys.Space) && oldState.IsKeyUp(Keys.Space))
             {
-                //  shipLaser.Show();
+                laserSound.Play();
                 Laser l = new Laser(game, spriteBatch);
                 l.Show();
                 game.Components.Add(l);
+                Shared.laserList.Add(l);
             }
 
             oldState = ks;

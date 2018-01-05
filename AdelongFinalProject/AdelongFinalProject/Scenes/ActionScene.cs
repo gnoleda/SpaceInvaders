@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace AdelongFinalProject
 {
@@ -14,8 +15,9 @@ namespace AdelongFinalProject
         private SpriteBatch spriteBatch;
         private Texture2D shipLaserTex, alienExpTex;
         private Ship ship;
-        private Laser shipLaser;
+        //private Laser shipLaser;
         private Vector2 pos;
+        private SoundEffect hitSound;
 
        // private List<Alien> alienList;
         private const int ROW = 3;
@@ -26,6 +28,7 @@ namespace AdelongFinalProject
         private const int ALIEN3_DELAY = 24;
         private Game1 game;
         private Explosion alienExplosion;
+
         //private Alien alien1;
         //private int delay = 20;
 
@@ -38,21 +41,26 @@ namespace AdelongFinalProject
             Shared.shipTex = game.Content.Load<Texture2D>("images/tank");
             ship = new Ship(game, spriteBatch, Shared.shipTex);
             shipLaserTex = game.Content.Load<Texture2D>("images/shipLaser");
-            shipLaser = new Laser(game, spriteBatch, shipLaserTex);
+            //shipLaser = new Laser(game, spriteBatch/*, shipLaserTex*/);
 
             //alien1
             Shared.alien1Tex = game.Content.Load<Texture2D>("images/alien1");
             Shared.alien2Tex = game.Content.Load<Texture2D>("images/alien2");
             Shared.alien3Tex = game.Content.Load<Texture2D>("images/alien3");
             Shared.alienSpeed = new Vector2(1.5f, 0);
+            Shared.alienList = new List<Alien>();
 
             //explosion
             alienExpTex = game.Content.Load<Texture2D>("images/alienExplosion");
-            alienExplosion = new Explosion(game, spriteBatch, alienExpTex, Vector2.Zero, 10);
+            alienExplosion = new Explosion(game, spriteBatch, alienExpTex, Vector2.Zero, 0.1f);
+            hitSound = game.Content.Load<SoundEffect>("sounds/invaderkilled");
+
+            //laser list
+            Shared.laserList = new List<Laser>();
 
             this.Components.Add(alienExplosion);
             this.Components.Add(ship);
-            this.Components.Add(shipLaser);
+            //this.Components.Add(shipLaser);
             CreateMultipleAliens();
         }
 
@@ -70,9 +78,10 @@ namespace AdelongFinalProject
 
                 Alien a = new Alien(game, spriteBatch, pos, Shared.alien1Tex, ALIEN1_DELAY, Shared.alienSpeed);
                 a.Show();
-                CollisionManager cm = new CollisionManager(game, a, ship, shipLaser,alienExplosion);
+                CollisionManager cm = new CollisionManager(game, a, ship, hitSound, alienExplosion );
                 this.Components.Add(cm);
                 this.Components.Add(a);
+                Shared.alienList.Add(a);
 
                 Shared.alien1Pos.X += Shared.ALIEN_SPACING + Shared.alien1Tex.Width;
             }
@@ -83,9 +92,10 @@ namespace AdelongFinalProject
 
                 Alien a = new Alien(game, spriteBatch, pos, Shared.alien2Tex, ALIEN2_DELAY, Shared.alienSpeed);
                 a.Show();
-                CollisionManager cm = new CollisionManager(game, a, ship, shipLaser, alienExplosion);
+                CollisionManager cm = new CollisionManager(game, a, ship, hitSound, alienExplosion);
                 this.Components.Add(cm);
                 this.Components.Add(a);
+                Shared.alienList.Add(a);
 
                 Shared.alien2Pos.X += Shared.ALIEN_SPACING + Shared.alien2Tex.Width;
             }
@@ -97,9 +107,10 @@ namespace AdelongFinalProject
                 Alien a = new Alien(game, spriteBatch, pos, Shared.alien3Tex, ALIEN3_DELAY, Shared.alienSpeed);
                 a.Show();
 
-                CollisionManager cm = new CollisionManager(game, a, ship, shipLaser, alienExplosion);
+                CollisionManager cm = new CollisionManager(game, a, ship, hitSound, alienExplosion);
                 this.Components.Add(cm);
                 this.Components.Add(a);
+                Shared.alienList.Add(a);
 
                 Shared.alien3Pos.X += Shared.ALIEN_SPACING + Shared.alien3Tex.Width;
             }
@@ -107,23 +118,6 @@ namespace AdelongFinalProject
 
         public override void Update(GameTime gameTime)
         {
-            //alienRect = new Rectangle();
-            //int rectX = 0;
-            //int rectY = 0;
-            //int rectDimensionX = 0;
-            //int rectDimensionY = 0;
-
-            ////if alien is not dead(hidden)add it to the rectangle
-            //for (int i = 0; i < Shared.frames.Count; i++)
-            //{
-            //    rectX += Shared.frames[i].X;
-            //    rectY += Shared.frames[i].Y;
-            //    rectDimensionX += Shared.frames[i].Width;
-            //    rectDimensionY += Shared.frames[i].Height;
-            //}
-
-            //alienRect = new Rectangle(rectX, rectY, rectDimensionX, rectDimensionY);
-
             base.Update(gameTime);
         }
 

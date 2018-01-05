@@ -16,15 +16,15 @@ namespace AdelongFinalProject
         private Vector2 pos;
         private Vector2 speed;
 
-        public Laser(Game game,
-            SpriteBatch spriteBatch,
-            Texture2D tex) : base(game)
-        {
-            this.spriteBatch = spriteBatch;
-            this.tex = tex;
-            pos = new Vector2(Shared.shipPos.X + Shared.shipTex.Width / 2 - tex.Width / 2, Shared.shipPos.Y - tex.Height);
-            speed = new Vector2(0, 10);
-        }
+        //public Laser(Game game,
+        //    SpriteBatch spriteBatch,
+        //    Texture2D tex) : base(game)
+        //{
+        //    this.spriteBatch = spriteBatch;
+        //    this.tex = tex;
+        //    pos = new Vector2(Shared.shipPos.X + Shared.shipTex.Width / 2 - tex.Width / 2, Shared.shipPos.Y - tex.Height);
+        //    speed = new Vector2(0, 10);
+        //}
 
         public Laser(Game game, SpriteBatch spriteBatch) : base(game)
         {
@@ -32,6 +32,7 @@ namespace AdelongFinalProject
             this.tex = ((Game1)game).Content.Load<Texture2D>("images/shipLaser");
             pos = new Vector2(Shared.shipPos.X + Shared.shipTex.Width / 2 - tex.Width / 2, Shared.shipPos.Y - tex.Height);
             speed = new Vector2(0, 10);
+            
         }
 
         public virtual void Show()
@@ -54,12 +55,18 @@ namespace AdelongFinalProject
 
         public override void Update(GameTime gameTime)
         {
-            KeyboardState ks = Keyboard.GetState();
-            
-            //if (ks.IsKeyDown(Keys.Space) && this.Enabled) 
-          //  {
+            //if the laser is shot...increase it's speed 
+            if(this.Enabled)
+            {
                 pos -= speed;
-          //  }
+            }
+
+            //if it leaves the screen..disable it
+            if(pos.Y + tex.Height < 0)
+            {
+                this.Hide();
+            }
+
             base.Update(gameTime);
         }
 

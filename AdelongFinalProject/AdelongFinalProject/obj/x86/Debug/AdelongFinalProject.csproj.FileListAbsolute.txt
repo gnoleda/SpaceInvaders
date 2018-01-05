@@ -192,3 +192,8 @@ C:\Users\aubre_000\Desktop\currentCopy3\SpaceInvaders\AdelongFinalProject\Adelon
 C:\Users\aubre_000\Desktop\currentCopy3\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\obj\x86\Debug\AdelongFinalProject.pdb
 C:\Users\aubre_000\Desktop\currentCopy3\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\helpBackground.xnb
 C:\Users\aubre_000\Desktop\currentCopy3\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\alienExplosion.xnb
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\alienExplosion.xnb
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\helpBackground.xnb
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\sounds\shoot.xnb
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\sounds\invaderkilled.xnb
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\sounds\explosionPlayer.xnb

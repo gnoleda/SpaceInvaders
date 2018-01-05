@@ -20,17 +20,17 @@ namespace AdelongFinalProject
         private List<Rectangle> frames;
         private int frameIndex = -1;
 
-        private int delay;
+        private float delay;
         private int delayCounter;
 
-        private const int ROW = 2;
+        private const int ROW = 3;
         private const int COL = 6;
 
         public Explosion(Game game,
             SpriteBatch spriteBatch,
             Texture2D tex,
             Vector2 position,
-            int delay) : base(game)
+            float delay) : base(game)
         {
             this.spriteBatch = spriteBatch;
             this.tex = tex;
@@ -39,25 +39,25 @@ namespace AdelongFinalProject
 
             dimension = new Vector2(tex.Width / COL, tex.Height / ROW);
             //stop/disable animation
-            this.stopAnimation();
+            this.StopAnimation();
 
             //create frames
-            createFrames();
+            CreateFrames();
         }
 
-        public void startAnimation()
+        public void StartAnimation()
         {
             this.Enabled = true;
             this.Visible = true;
         }
 
-        public void stopAnimation()
+        public void StopAnimation()
         {
             this.Enabled = false;
             this.Visible = false;
         }
 
-        private void createFrames()
+        private void CreateFrames()
         {
             frames = new List<Rectangle>();
             for (int i = 0; i < ROW; i++)
@@ -83,7 +83,7 @@ namespace AdelongFinalProject
                 if (frameIndex > ROW * COL - 1)
                 {
                     frameIndex = -1;
-                    stopAnimation();
+                    StopAnimation();
                 }
                 delayCounter = 0;
             }

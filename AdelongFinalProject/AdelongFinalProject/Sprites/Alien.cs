@@ -16,14 +16,7 @@ namespace AdelongFinalProject
         private Vector2 pos;
         private Vector2 speed;
         private Vector2 dimension;
-
-        //private Game1 game;
-
-        //private List<Rectangle> frames;
-        //private List<Texture2D> aliens;
-
-        private Rectangle alienRect;
-        //private Vector2 dimension;
+        
 
         //create frames
         private int frameIndex = 0;
@@ -52,11 +45,6 @@ namespace AdelongFinalProject
 
         }
 
-        //public void stopAnimation()
-        //{
-        //    this.Enabled = false;
-        //    this.Visible = false;
-        //}
         public virtual void Show()
         {
             this.Enabled = true;
@@ -72,7 +60,6 @@ namespace AdelongFinalProject
         private void CreateFrames()
         {
             Shared.frames = new List<Rectangle>();
-            //List<Rectangle> alienList = new List<Rectangle>();
 
             for (int i = 0; i < ROW; i++)
             {

@@ -4,20 +4,24 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alien.png</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alien1.png</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alien3.png</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/title.png</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/fonts/menuFont.spritefont</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/fonts/hilightFont.spritefont</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/menuTheme.mp3</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/actionBackground.jpg</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/actionTheme.mp3</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/tank.png</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/shipLaser.png</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alien2.png</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/background.PNG</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/helpBackground.PNG</File>
-    <File>C:/Users/aubre_000/Desktop/currentCopy3/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alienExplosion.png</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alien.png</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alien1.png</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alien3.png</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/title.png</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/fonts/menuFont.spritefont</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/fonts/hilightFont.spritefont</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/menuTheme.mp3</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/actionBackground.jpg</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/actionTheme.mp3</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/tank.png</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/shipLaser.png</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alien2.png</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/background.PNG</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/helpBackground.PNG</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alienExplosion.png</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/shoot.wav</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/invaderkilled.wav</File>
+    <File>D:/F2017/GAME/GameFinalProject/content/sounds/invaderkilled.wav</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/explosionPlayer.wav</File>
   </SourceFiles>
 </SourceFileCollection>
