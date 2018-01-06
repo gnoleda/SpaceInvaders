@@ -15,11 +15,10 @@ namespace AdelongFinalProject
         private SpriteBatch spriteBatch;
         private Texture2D shipLaserTex, alienExpTex;
         private Ship ship;
-        //private Laser shipLaser;
         private Vector2 pos;
         private SoundEffect hitSound;
 
-       // private List<Alien> alienList;
+        // private List<Alien> alienList;
         private const int ROW = 3;
         private const int COL = 5;
         private const int NUM_ALIENS = 5;
@@ -29,8 +28,12 @@ namespace AdelongFinalProject
         private Game1 game;
         private Explosion alienExplosion;
 
-        //private Alien alien1;
-        //private int delay = 20;
+        //score
+        private Score score;
+        private SpriteFont scoreFont;
+        private float scoreValue;
+        private string scoreString;
+        private Vector2 scorePos;
 
         public ActionScene(Game game,
             SpriteBatch spriteBatch) : base(game)
@@ -41,7 +44,14 @@ namespace AdelongFinalProject
             Shared.shipTex = game.Content.Load<Texture2D>("images/tank");
             ship = new Ship(game, spriteBatch, Shared.shipTex);
             shipLaserTex = game.Content.Load<Texture2D>("images/shipLaser");
-            //shipLaser = new Laser(game, spriteBatch/*, shipLaserTex*/);
+
+            //score
+            //initial value of score
+            scoreValue = 00000f;
+            scoreString = "SCORE: " + scoreValue;
+            scorePos = new Vector2(10, 2);            
+            scoreFont = game.Content.Load<SpriteFont>("fonts/scoreFont");
+            score = new Score(game, spriteBatch, scoreFont, scorePos, scoreString);
 
             //alien1
             Shared.alien1Tex = game.Content.Load<Texture2D>("images/alien1");
@@ -62,7 +72,7 @@ namespace AdelongFinalProject
 
             this.Components.Add(alienExplosion);
             this.Components.Add(ship);
-            //this.Components.Add(shipLaser);
+            this.Components.Add(score);
             CreateMultipleAliens();
         }
 
@@ -120,6 +130,7 @@ namespace AdelongFinalProject
 
         public override void Update(GameTime gameTime)
         {
+
             base.Update(gameTime);
         }
 

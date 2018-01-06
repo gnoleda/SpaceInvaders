@@ -20,9 +20,11 @@ namespace AdelongFinalProject
         private HelpScene helpScene;
         private WinScene winScene;
 
-        private Texture2D startBackground, actionBackground, helpBackground, winBackground;
+        private Texture2D startBackground, actionBackground, helpBackground, winBackground, aboutBackground;
         private Song menuTheme, actionTheme;
         private const int TOTAL_ALIENS = 15;
+
+        //score
 
         public Game1()
         {
@@ -82,6 +84,7 @@ namespace AdelongFinalProject
             actionBackground = Content.Load<Texture2D>("images/actionBackground");
             helpBackground = Content.Load<Texture2D>("images/helpBackground");
             winBackground = Content.Load<Texture2D>("images/winBackground");
+            aboutBackground = Content.Load<Texture2D>("images/aboutBackground");
 
             //sounds
             menuTheme = Content.Load<Song>("sounds/menuTheme");
@@ -181,7 +184,7 @@ namespace AdelongFinalProject
             {
                 //if (TOTAL_ALIENS == Shared.deadAlienList.Count)
                 if(TOTAL_ALIENS == Shared.deadAlienCount)
-                {
+                {                    
                     HideAllScenes();
                     winScene.Show();
                     StartMusic();
@@ -213,7 +216,7 @@ namespace AdelongFinalProject
             }
             else if (aboutScene.Enabled)
             {
-                spriteBatch.Draw(startBackground, Vector2.Zero, Color.White);
+                spriteBatch.Draw(aboutBackground, Vector2.Zero, Color.White);
             }
             else if (helpScene.Enabled)
             {

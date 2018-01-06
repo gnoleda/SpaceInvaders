@@ -13,21 +13,23 @@ namespace AdelongFinalProject
     {
         private SpriteBatch spriteBatch;
         private SpriteFont spriteFont;
-        private Vector2 pos;
-        private string message;
+        public Vector2 Position { get; set; }
+        public string Value { get; set; }
         //private Color color;
 
         public SimpleString(Game game,
             SpriteBatch spriteBatch,
+            SpriteFont spriteFont,
             Vector2 pos,
-            string message
+            string value
             ) : base(game)
+
         {
             this.spriteBatch = spriteBatch;
-            spriteFont = game.Content.Load<SpriteFont>("fonts/menuFont");
-            this.message = message;
-            this.pos = pos;
-            //color = Color.White;
+            this.spriteFont = spriteFont;
+            Position = pos;
+            Value = value;
+            //color = Color.Red;
         }
 
         public override void Update(GameTime gameTime)
@@ -39,7 +41,7 @@ namespace AdelongFinalProject
         {
             spriteBatch.Begin();
 
-            spriteBatch.DrawString(spriteFont, message,pos, Color.White);
+            spriteBatch.DrawString(spriteFont, Value, Position, Color.Red);
 
             spriteBatch.End();
             base.Draw(gameTime);

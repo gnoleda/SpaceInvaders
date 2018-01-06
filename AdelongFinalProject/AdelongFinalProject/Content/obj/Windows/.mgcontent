@@ -11,7 +11,6 @@
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/fonts/menuFont.spritefont</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/fonts/hilightFont.spritefont</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/menuTheme.mp3</File>
-    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/actionBackground.jpg</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/actionTheme.mp3</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/tank.png</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/shipLaser.png</File>
@@ -20,9 +19,11 @@
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alienExplosion.png</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/shoot.wav</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/invaderkilled.wav</File>
-    <File>D:/F2017/GAME/GameFinalProject/content/sounds/invaderkilled.wav</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/explosionPlayer.wav</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/helpBackground.PNG</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/winBackground.PNG</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/fonts/scoreFont.spritefont</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/aboutBackground.PNG</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/actionBackground.PNG</File>
   </SourceFiles>
 </SourceFileCollection>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/fonts/hilightFont.spritefont</SourceFile>
-  <SourceTime>2018-01-04T11:50:04-05:00</SourceTime>
-  <DestFile>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/bin/Windows/fonts/hilightFont.xnb</DestFile>
-  <DestTime>2018-01-06T14:41:08.7044118-05:00</DestTime>
+  <SourceFile>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/fonts/scoreFont.spritefont</SourceFile>
+  <SourceTime>2018-01-06T13:37:38.8580328-05:00</SourceTime>
+  <DestFile>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/bin/Windows/fonts/scoreFont.xnb</DestFile>
+  <DestTime>2018-01-06T14:41:20.3315162-05:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

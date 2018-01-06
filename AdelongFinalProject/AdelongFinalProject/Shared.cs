@@ -20,5 +20,6 @@ namespace AdelongFinalProject
         public static List<Alien> alienList/*, deadAlienList*/;
         public static int deadAlienCount;
         public static bool isGameOver;
+        public static float scoreValue;
     }
 }

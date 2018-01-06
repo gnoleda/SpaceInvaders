@@ -45,6 +45,7 @@
     <Compile Include="Explosion.cs" />
     <Compile Include="Scenes\AboutScene.cs" />
     <Compile Include="Scenes\ActionScene.cs" />
+    <Compile Include="Score.cs" />
     <Compile Include="Sprites\Alien.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Scenes\GameScene.cs" />
@@ -57,7 +58,7 @@
     <Compile Include="Sprites\Ship.cs" />
     <Compile Include="SimpleString.cs" />
     <Compile Include="Scenes\StartScene.cs" />
-    <Compile Include="WinScene.cs" />
+    <Compile Include="Scenes\WinScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
