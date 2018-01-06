@@ -16,7 +16,7 @@ namespace AdelongFinalProject
         private Ship ship;
         private SoundEffect hitSound;
         private Explosion explosion;
-        private Game1 game;
+        //private Game1 game;
 
         public CollisionManager(Game game,
             Alien alien,
@@ -66,6 +66,8 @@ namespace AdelongFinalProject
                                 if (Shared.laserList[i].getBound().Intersects(Shared.alienList[j].getBound()))
                                 {
                                     hitSound.Play();
+                                    //Shared.deadAlienList.Add();
+                                    Shared.deadAlienCount++;
                                     Shared.laserList[i].Hide();
                                     Shared.alienList[j].Hide();
                                     explosion.Position = new Vector2(Shared.alienList[j].getBound().X, Shared.alienList[j].getBound().Y);

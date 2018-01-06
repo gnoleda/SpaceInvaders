@@ -109,11 +109,17 @@ namespace AdelongFinalProject
                 if (frameIndex > ROW * COL - 1)//if it reaches the highest index, it stops itself
                 {
                     frameIndex = 0;
-                    //frameIndex = -1; //designates its not a valid index
+                    //frameIndex =  -1; //designates its not a valid index
                     //stopAnimation();
                 }
                 delayCounter = 0;
                 
+            }
+            
+            //make sure aliens dont go below bottom
+            if(pos.Y + tex.Height >= Shared.stage.Y)
+            {
+                pos.Y = Shared.stage.Y - tex.Height;
             }
 
             base.Update(gameTime);

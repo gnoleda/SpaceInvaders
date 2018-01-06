@@ -18,9 +18,11 @@ namespace AdelongFinalProject
         private ActionScene actionScene;
         private AboutScene aboutScene;
         private HelpScene helpScene;
+        private WinScene winScene;
 
-        private Texture2D startBackground, actionBackground, helpBackground;
+        private Texture2D startBackground, actionBackground, helpBackground, winBackground;
         private Song menuTheme, actionTheme;
+        private const int TOTAL_ALIENS = 15;
 
         public Game1()
         {
@@ -73,11 +75,13 @@ namespace AdelongFinalProject
             actionScene = new ActionScene(this, spriteBatch);
             aboutScene = new AboutScene(this, spriteBatch);
             helpScene = new HelpScene(this, spriteBatch);
+            winScene = new WinScene(this, spriteBatch);
 
             //backgrounds and images
             startBackground = Content.Load<Texture2D>("images/background");
             actionBackground = Content.Load<Texture2D>("images/actionBackground");
             helpBackground = Content.Load<Texture2D>("images/helpBackground");
+            winBackground = Content.Load<Texture2D>("images/winBackground");
 
             //sounds
             menuTheme = Content.Load<Song>("sounds/menuTheme");
@@ -87,6 +91,7 @@ namespace AdelongFinalProject
             Components.Add(actionScene);
             Components.Add(aboutScene);
             Components.Add(helpScene);
+            Components.Add(winScene);
 
             //enable only one start scene
             startScene.Show();
@@ -104,7 +109,7 @@ namespace AdelongFinalProject
 
         public void StartMusic()
         {
-            if(startScene.Enabled || aboutScene.Enabled || helpScene.Enabled)
+            if(startScene.Enabled || aboutScene.Enabled || helpScene.Enabled || winScene.Enabled)
             {
                 MediaPlayer.Play(menuTheme);
             }
@@ -170,9 +175,21 @@ namespace AdelongFinalProject
                 startScene.Show();
                 StartMusic();
             }
-            
 
-            base.Update(gameTime);
+            //winScrene
+            if (!winScene.Enabled && Shared.deadAlienCount != 0)
+            {
+                //if (TOTAL_ALIENS == Shared.deadAlienList.Count)
+                if(TOTAL_ALIENS == Shared.deadAlienCount)
+                {
+                    HideAllScenes();
+                    winScene.Show();
+                    StartMusic();
+                    Shared.deadAlienCount = 0;
+                }
+            }
+
+                base.Update(gameTime);
         }
 
         /// <summary>
@@ -201,6 +218,10 @@ namespace AdelongFinalProject
             else if (helpScene.Enabled)
             {
                 spriteBatch.Draw(helpBackground, Vector2.Zero, Color.White);
+            }
+            else if (winScene.Enabled)
+            {
+                spriteBatch.Draw(winBackground, Vector2.Zero, Color.White);
             }
 
             spriteBatch.End();

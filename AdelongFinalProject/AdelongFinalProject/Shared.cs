@@ -17,7 +17,8 @@ namespace AdelongFinalProject
         public const int ALIEN_SPACING = 2;
         public static List<Rectangle> frames;
         public static List<Laser> laserList;
-        public static List<Alien> alienList;
+        public static List<Alien> alienList/*, deadAlienList*/;
+        public static int deadAlienCount;
         public static bool isGameOver;
     }
 }

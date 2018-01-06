@@ -57,6 +57,7 @@
     <Compile Include="Sprites\Ship.cs" />
     <Compile Include="SimpleString.cs" />
     <Compile Include="Scenes\StartScene.cs" />
+    <Compile Include="WinScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
