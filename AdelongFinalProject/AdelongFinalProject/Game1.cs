@@ -124,6 +124,16 @@ namespace AdelongFinalProject
             MediaPlayer.IsRepeating = true;
         }
 
+        //public void ReStartGame()
+        //{
+        //    Shared.alienList.Clear();
+        //    Shared.laserList.Clear();
+        //    Shared.scoreValue = 0;
+        //    Shared.alien1Pos = Shared.alien1InitPos;
+        //    Shared.alien2Pos = Shared.alien2InitPos;
+        //    Shared.alien3Pos = Shared.alien3InitPos;
+        //    Shared.shipPos = Shared.initShipPos;
+        //}
 
         /// <summary>
         /// Allows the game to run logic such as updating the world,
@@ -146,6 +156,7 @@ namespace AdelongFinalProject
 
                 if (selectedIndex == 0 && ks.IsKeyDown(Keys.Enter))
                 {
+                    Shared.StartLevel1();
                     HideAllScenes();
                     actionScene.Show();
                     StartMusic();
@@ -177,14 +188,15 @@ namespace AdelongFinalProject
                 HideAllScenes();
                 startScene.Show();
                 StartMusic();
+                //ReStartGame();
+                //cear
             }
 
             //winScrene
             if (!winScene.Enabled && Shared.deadAlienCount != 0)
             {
-                //if (TOTAL_ALIENS == Shared.deadAlienList.Count)
                 if(TOTAL_ALIENS == Shared.deadAlienCount)
-                {                    
+                {
                     HideAllScenes();
                     winScene.Show();
                     StartMusic();

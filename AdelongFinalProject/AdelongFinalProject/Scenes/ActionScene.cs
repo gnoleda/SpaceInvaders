@@ -68,8 +68,6 @@ namespace AdelongFinalProject
             //laser list
             Shared.laserList = new List<Laser>();
 
-            Shared.isGameOver = false;
-
             this.Components.Add(alienExplosion);
             this.Components.Add(ship);
             this.Components.Add(score);
@@ -80,8 +78,8 @@ namespace AdelongFinalProject
         {
             //also make multiple collision managers here for each alien.
             Shared.alien1Pos = new Vector2(0, Shared.alien1Tex.Height);
-            Shared.alien2Pos = new Vector2(0, Shared.alien1Pos.Y+ Shared.alien1Tex.Height + Shared.ALIEN_SPACING);
-            Shared.alien3Pos = new Vector2(0, Shared.alien2Pos.Y+ Shared.alien1Tex.Height + Shared.ALIEN_SPACING);
+            Shared.alien2Pos = new Vector2(0, Shared.alien1Pos.Y + Shared.alien1Tex.Height + Shared.ALIEN_SPACING);
+            Shared.alien3Pos = new Vector2(0, Shared.alien2Pos.Y + Shared.alien1Tex.Height + Shared.ALIEN_SPACING);
 
             //green alien
             for (int i = 0; i < NUM_ALIENS; i++)
@@ -130,6 +128,7 @@ namespace AdelongFinalProject
 
         public override void Update(GameTime gameTime)
         {
+            //update score
 
             base.Update(gameTime);
         }

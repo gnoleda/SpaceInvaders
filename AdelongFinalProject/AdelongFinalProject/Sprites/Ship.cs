@@ -31,8 +31,6 @@ namespace AdelongFinalProject
             this.game = (Game1)game;
             this.spriteBatch = spriteBatch;
             this.tex = tex;
-            //pos = new Vector2(Shared.stage.X / 2 - tex.Width /2, 0);
-            //pos = new Vector2(Shared.stage.X - tex.Width / 2, Shared.stage.Y - tex.Height);
             Shared.shipPos = new Vector2(Shared.stage.X / 2 - tex.Width / 2, Shared.stage.Y - tex.Height);
             speed = new Vector2(4, 0);
             laserSound = game.Content.Load<SoundEffect>("sounds/shoot");
@@ -91,6 +89,7 @@ namespace AdelongFinalProject
             }
 
             oldState = ks;
+            
 
             base.Update(gameTime);
         }

@@ -45,8 +45,6 @@ namespace AdelongFinalProject
                         ship.Hide();
                         alien.StopAllAliens();
 
-                        Shared.isGameOver = true;
-
                     }
                 }
             }
@@ -79,6 +77,7 @@ namespace AdelongFinalProject
 
                 }
             }
+            
            
             base.Update(gameTime);
         }

@@ -121,7 +121,7 @@ namespace AdelongFinalProject
             {
                 pos.Y = Shared.stage.Y - tex.Height;
             }
-
+            
             base.Update(gameTime);
         }
 
