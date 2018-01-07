@@ -25,5 +25,9 @@
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/fonts/scoreFont.spritefont</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/aboutBackground.PNG</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/actionBackground.PNG</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/loseBackground.PNG</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/fonts/loseFont.spritefont</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/shipExplosion.png</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/shipHitSound.wav</File>
   </SourceFiles>
 </SourceFileCollection>

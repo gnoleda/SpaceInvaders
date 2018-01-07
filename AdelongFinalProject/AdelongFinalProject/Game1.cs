@@ -18,9 +18,11 @@ namespace AdelongFinalProject
         private ActionScene actionScene;
         private AboutScene aboutScene;
         private HelpScene helpScene;
-        private WinScene winScene;
+        private WinScene winScene, loseScene;
 
-        private Texture2D startBackground, actionBackground, helpBackground, winBackground, aboutBackground;
+        //reset shit
+
+        private Texture2D startBackground, actionBackground, helpBackground, winBackground, aboutBackground, loseBackground;
         private Song menuTheme, actionTheme;
         private const int TOTAL_ALIENS = 15;
 
@@ -43,7 +45,9 @@ namespace AdelongFinalProject
         {
             // TODO: Add your initialization logic here
             //initializes the super global variable
+            //Shared stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             Shared.stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+
 
             base.Initialize();
         }
@@ -60,7 +64,7 @@ namespace AdelongFinalProject
                 }
             }
         }
-        
+
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -78,6 +82,7 @@ namespace AdelongFinalProject
             aboutScene = new AboutScene(this, spriteBatch);
             helpScene = new HelpScene(this, spriteBatch);
             winScene = new WinScene(this, spriteBatch);
+            loseScene = new WinScene(this, spriteBatch);
 
             //backgrounds and images
             startBackground = Content.Load<Texture2D>("images/background");
@@ -85,6 +90,7 @@ namespace AdelongFinalProject
             helpBackground = Content.Load<Texture2D>("images/helpBackground");
             winBackground = Content.Load<Texture2D>("images/winBackground");
             aboutBackground = Content.Load<Texture2D>("images/aboutBackground");
+            loseBackground = Content.Load<Texture2D>("images/loseBackground");
 
             //sounds
             menuTheme = Content.Load<Song>("sounds/menuTheme");
@@ -95,6 +101,7 @@ namespace AdelongFinalProject
             Components.Add(aboutScene);
             Components.Add(helpScene);
             Components.Add(winScene);
+            Components.Add(loseScene);
 
             //enable only one start scene
             startScene.Show();
@@ -112,28 +119,18 @@ namespace AdelongFinalProject
 
         public void StartMusic()
         {
-            if(startScene.Enabled || aboutScene.Enabled || helpScene.Enabled || winScene.Enabled)
+            if (startScene.Enabled || aboutScene.Enabled || helpScene.Enabled || winScene.Enabled)
             {
                 MediaPlayer.Play(menuTheme);
             }
-            else if (actionScene.Enabled)
+            if (actionScene.Enabled)
             {
                 MediaPlayer.Stop();
                 MediaPlayer.Play(actionTheme);
             }
+
             MediaPlayer.IsRepeating = true;
         }
-
-        //public void ReStartGame()
-        //{
-        //    Shared.alienList.Clear();
-        //    Shared.laserList.Clear();
-        //    Shared.scoreValue = 0;
-        //    Shared.alien1Pos = Shared.alien1InitPos;
-        //    Shared.alien2Pos = Shared.alien2InitPos;
-        //    Shared.alien3Pos = Shared.alien3InitPos;
-        //    Shared.shipPos = Shared.initShipPos;
-        //}
 
         /// <summary>
         /// Allows the game to run logic such as updating the world,
@@ -149,14 +146,13 @@ namespace AdelongFinalProject
             int selectedIndex = 0;
             KeyboardState ks = Keyboard.GetState();
 
-            if(startScene.Enabled)
+            if (startScene.Enabled)
             {
                 //check which menu item selected
                 selectedIndex = startScene.Menu.SelectedIndex;
 
                 if (selectedIndex == 0 && ks.IsKeyDown(Keys.Enter))
                 {
-                    Shared.StartLevel1();
                     HideAllScenes();
                     actionScene.Show();
                     StartMusic();
@@ -167,44 +163,49 @@ namespace AdelongFinalProject
                     helpScene.Show();
                     StartMusic();
                 }
-                else if(selectedIndex == 2 && ks.IsKeyDown(Keys.Enter))
+                else if (selectedIndex == 2 && ks.IsKeyDown(Keys.Enter))
                 {
                     HideAllScenes();
                     aboutScene.Show();
                     StartMusic();
                 }
-                else if(selectedIndex == 3 && ks.IsKeyDown(Keys.Enter))
+                else if (selectedIndex == 3 && ks.IsKeyDown(Keys.Enter))
                 {
                     Exit();
                 }
-            }
-            if (startScene.Enabled && ks.IsKeyDown(Keys.Escape))
-            {
-                HideAllScenes();
-                startScene.Show();
-            }
-            if (ks.IsKeyDown(Keys.Escape) && !startScene.Enabled)
-            {
-                HideAllScenes();
-                startScene.Show();
-                StartMusic();
-                //ReStartGame();
-                //cear
             }
 
             //winScrene
             if (!winScene.Enabled && Shared.deadAlienCount != 0)
             {
-                if(TOTAL_ALIENS == Shared.deadAlienCount)
+                if (TOTAL_ALIENS == Shared.deadAlienCount)
                 {
                     HideAllScenes();
                     winScene.Show();
                     StartMusic();
                     Shared.deadAlienCount = 0;
+                    Shared.isLevel1Completed = true;
                 }
             }
 
-                base.Update(gameTime);
+            //loseScene
+            if (actionScene.Enabled && Shared.isShipDestroyed == true)
+            {
+                HideAllScenes();
+                loseScene.Show();
+                Shared.isShipDestroyed = false;
+
+            }
+
+            if (ks.IsKeyDown(Keys.Escape) && !startScene.Enabled)
+            {
+                HideAllScenes();
+                startScene.Show();
+                StartMusic();
+
+            }
+
+            base.Update(gameTime);
         }
 
         /// <summary>
@@ -237,6 +238,10 @@ namespace AdelongFinalProject
             else if (winScene.Enabled)
             {
                 spriteBatch.Draw(winBackground, Vector2.Zero, Color.White);
+            }
+            else if (loseScene.Enabled)
+            {
+                spriteBatch.Draw(loseBackground, Vector2.Zero, Color.White);
             }
 
             spriteBatch.End();

@@ -41,6 +41,8 @@ namespace AdelongFinalProject
                 }
             }
             base.Update(gameTime);
+
+
         }
 
         public override void Draw(GameTime gameTime)

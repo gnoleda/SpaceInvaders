@@ -26,11 +26,12 @@ namespace AdelongFinalProject
         //    speed = new Vector2(0, 10);
         //}
 
-        public Laser(Game game, SpriteBatch spriteBatch) : base(game)
+        public Laser(Game game, SpriteBatch spriteBatch, Vector2 shipPos) : base(game)
         {
             this.spriteBatch = spriteBatch;
             this.tex = ((Game1)game).Content.Load<Texture2D>("images/shipLaser");
-            pos = new Vector2(Shared.shipPos.X + Shared.shipTex.Width / 2 - tex.Width / 2, Shared.shipPos.Y - tex.Height);
+            this.pos = new Vector2 (shipPos.X + Shared.shipTex.Width / 2 - tex.Width, shipPos.Y - tex.Height);
+                /*new Vector2(Shared.shipPos.X + Shared.shipTex.Width / 2 - tex.Width / 2, Shared.shipPos.Y - tex.Height);*/
             speed = new Vector2(0, 10);
             
         }

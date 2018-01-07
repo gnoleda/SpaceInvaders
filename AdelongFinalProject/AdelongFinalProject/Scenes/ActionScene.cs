@@ -13,10 +13,13 @@ namespace AdelongFinalProject
     public class ActionScene : GameScene
     {
         private SpriteBatch spriteBatch;
-        private Texture2D shipLaserTex, alienExpTex;
+        private Texture2D shipLaserTex, alienExpTex, shipExpTex;
         private Ship ship;
-        private Vector2 pos;
-        private SoundEffect hitSound;
+        private Vector2 pos, shipPos;
+        private SoundEffect hitSound, shipHitSound;
+        KeyboardState ks = Keyboard.GetState();
+
+        //private Score scoreNew;
 
         // private List<Alien> alienList;
         private const int ROW = 3;
@@ -27,11 +30,13 @@ namespace AdelongFinalProject
         private const int ALIEN3_DELAY = 24;
         private Game1 game;
         private Explosion alienExplosion;
+        //private ExplosionShip shipExplosion;
 
         //score
         private Score score;
         private SpriteFont scoreFont;
-        private float scoreValue;
+        private float scoreNew = 0;
+        private float scoreInit = 0;
         private string scoreString;
         private Vector2 scorePos;
 
@@ -42,36 +47,42 @@ namespace AdelongFinalProject
             
             //ship
             Shared.shipTex = game.Content.Load<Texture2D>("images/tank");
-            ship = new Ship(game, spriteBatch, Shared.shipTex);
+            shipPos = new Vector2(Shared.stage.X / 2 - Shared.shipTex.Width / 2, Shared.stage.Y - Shared.shipTex.Height);
+            ship = new Ship(game, spriteBatch, Shared.shipTex, shipPos);
             shipLaserTex = game.Content.Load<Texture2D>("images/shipLaser");
 
             //score
             //initial value of score
-            scoreValue = 00000f;
-            scoreString = "SCORE: " + scoreValue;
+            //scoreValue = 00000f;
+            //scoreString = "SCORE: " + scoreValue;
             scorePos = new Vector2(10, 2);            
             scoreFont = game.Content.Load<SpriteFont>("fonts/scoreFont");
-            score = new Score(game, spriteBatch, scoreFont, scorePos, scoreString);
+            score = new Score(game, spriteBatch, scoreFont, scorePos/*, scoreString*/);
 
             //alien1
             Shared.alien1Tex = game.Content.Load<Texture2D>("images/alien1");
             Shared.alien2Tex = game.Content.Load<Texture2D>("images/alien2");
             Shared.alien3Tex = game.Content.Load<Texture2D>("images/alien3");
-            Shared.alienSpeed = new Vector2(1.5f, 0);
+            Shared.alienSpeed = new Vector2(2.5f, 0);
             Shared.alienList = new List<Alien>();
 
             //explosion
             alienExpTex = game.Content.Load<Texture2D>("images/alienExplosion");
-            alienExplosion = new Explosion(game, spriteBatch, alienExpTex, Vector2.Zero, 0.1f);
+            shipExpTex = game.Content.Load<Texture2D>("images/shipExplosion");
             hitSound = game.Content.Load<SoundEffect>("sounds/invaderkilled");
+            shipHitSound = game.Content.Load<SoundEffect>("sounds/shipHitSound");
+            alienExplosion = new Explosion(game, spriteBatch, alienExpTex, Vector2.Zero, 0.1f);
+            //shipExplosion = new ExplosionShip(game, spriteBatch, shipExpTex, Vector2.Zero, 0.1f);
 
             //laser list
             Shared.laserList = new List<Laser>();
-
-            this.Components.Add(alienExplosion);
+            
+            CreateMultipleAliens();
+            //this.Components.Add(shipExplosion);
             this.Components.Add(ship);
             this.Components.Add(score);
-            CreateMultipleAliens();
+            this.Components.Add(alienExplosion);
+
         }
 
         public void CreateMultipleAliens()
@@ -88,8 +99,11 @@ namespace AdelongFinalProject
 
                 Alien a = new Alien(game, spriteBatch, pos, Shared.alien1Tex, ALIEN1_DELAY, Shared.alienSpeed);
                 a.Show();
-                CollisionManager cm = new CollisionManager(game, a, ship, hitSound, alienExplosion );
+                CollisionManager cm = new CollisionManager(game, a, hitSound, alienExplosion);
+                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound/*, shipExplosion*/);
+
                 this.Components.Add(cm);
+                this.Components.Add(cmShip);
                 this.Components.Add(a);
                 Shared.alienList.Add(a);
 
@@ -102,8 +116,11 @@ namespace AdelongFinalProject
 
                 Alien a = new Alien(game, spriteBatch, pos, Shared.alien2Tex, ALIEN2_DELAY, Shared.alienSpeed);
                 a.Show();
-                CollisionManager cm = new CollisionManager(game, a, ship, hitSound, alienExplosion);
+                CollisionManager cm = new CollisionManager(game, a, hitSound, alienExplosion);
+                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound/*, shipExplosion*/);
+
                 this.Components.Add(cm);
+                this.Components.Add(cmShip);
                 this.Components.Add(a);
                 Shared.alienList.Add(a);
 
@@ -116,9 +133,12 @@ namespace AdelongFinalProject
 
                 Alien a = new Alien(game, spriteBatch, pos, Shared.alien3Tex, ALIEN3_DELAY, Shared.alienSpeed);
                 a.Show();
+                
+                CollisionManager cm = new CollisionManager(game, a, hitSound, alienExplosion);
+                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound/*, shipExplosion*/);
 
-                CollisionManager cm = new CollisionManager(game, a, ship, hitSound, alienExplosion);
                 this.Components.Add(cm);
+                this.Components.Add(cmShip);
                 this.Components.Add(a);
                 Shared.alienList.Add(a);
 
@@ -128,7 +148,32 @@ namespace AdelongFinalProject
 
         public override void Update(GameTime gameTime)
         {
-            //update score
+            //checkscore
+            //laser collision with alien
+            //to update score
+            if (Shared.laserList != null)
+            {
+                for (int i = 0; i < Shared.laserList.Count; i++)
+                {
+                    if (Shared.laserList[i].Enabled)
+                    {
+                        for (int j = 0; j < Shared.alienList.Count; j++)
+                        {
+                            if (Shared.alienList[j].Enabled)
+                            {
+                                if (Shared.laserList[i].getBound().Intersects(Shared.alienList[j].getBound()))
+                                {
+                                    scoreNew += 10;
+                                    score.Value = "SCORE: " + scoreNew;
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            }         
+
 
             base.Update(gameTime);
         }

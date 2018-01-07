@@ -42,7 +42,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CollisionManager.cs" />
-    <Compile Include="Explosion.cs" />
+    <Compile Include="CollisionManagerShip.cs" />
+    <Compile Include="Explosions\ExplosionShip.cs" />
+    <Compile Include="Explosions\Explosion.cs" />
     <Compile Include="Scenes\AboutScene.cs" />
     <Compile Include="Scenes\ActionScene.cs" />
     <Compile Include="Score.cs" />

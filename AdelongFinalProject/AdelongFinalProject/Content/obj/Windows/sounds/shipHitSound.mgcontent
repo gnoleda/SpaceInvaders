@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/shipHitSound.wav</SourceFile>
+  <SourceTime>2018-01-06T23:04:55.3406607-05:00</SourceTime>
+  <DestFile>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/bin/Windows/sounds/shipHitSound.xnb</DestFile>
+  <DestTime>2018-01-06T23:06:59.7109805-05:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2017-03-01T10:05:36-05:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

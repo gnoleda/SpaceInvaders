@@ -13,25 +13,24 @@ namespace AdelongFinalProject
     public class Ship : DrawableGameComponent
     {
         private SpriteBatch spriteBatch;
-        //public Vector2 shipPos;
+        public Vector2 pos;
         private Vector2 speed;
         private Texture2D tex;
         private Game1 game;
         private SoundEffect laserSound;
-
-
         private KeyboardState oldState;
-
 
         public Ship(Game game,
             SpriteBatch spriteBatch,
-            Texture2D tex
+            Texture2D tex,
+            Vector2 shipPos
             ) : base(game)
         {
             this.game = (Game1)game;
             this.spriteBatch = spriteBatch;
             this.tex = tex;
-            Shared.shipPos = new Vector2(Shared.stage.X / 2 - tex.Width / 2, Shared.stage.Y - tex.Height);
+            this.pos = shipPos;
+            //Shared.shipPos = new Vector2(Shared.stage.X / 2 - tex.Width / 2, Shared.stage.Y - tex.Height);
             speed = new Vector2(4, 0);
             laserSound = game.Content.Load<SoundEffect>("sounds/shoot");
         }
@@ -50,7 +49,7 @@ namespace AdelongFinalProject
 
         public Rectangle getBound()
         {
-            return new Rectangle((int)Shared.shipPos.X, (int)Shared.shipPos.Y, tex.Width, tex.Height);
+            return new Rectangle((int)pos.X, (int)pos.Y, tex.Width, tex.Height);
 
         }
 
@@ -62,27 +61,25 @@ namespace AdelongFinalProject
             {
                 //we add the x and y components of pos and speed together. 
                 //because the y variable of speed is 0, the ship never goes up.
-                Shared.shipPos += speed;
-                if (Shared.shipPos.X > Shared.stage.X - tex.Width)
+                pos += speed;
+                if (pos.X > Shared.stage.X - tex.Width)
                 {
-                    Shared.shipPos.X = Shared.stage.X - tex.Width;
+                    pos.X = Shared.stage.X - tex.Width;
                 }
             }
             if (ks.IsKeyDown(Keys.Left))
             {
-                Shared.shipPos -= speed;
-                if (Shared.shipPos.X < 0)
+                pos -= speed;
+                if (pos.X < 0)
                 {
-                    Shared.shipPos.X = 0;
+                    pos.X = 0;
                 }
             }
-           // KeyboardState ks = Keyboard.GetState();
-            //shipLaser.Hide();
 
             if (ks.IsKeyDown(Keys.Space) && oldState.IsKeyUp(Keys.Space))
             {
                 laserSound.Play();
-                Laser l = new Laser(game, spriteBatch);
+                Laser l = new Laser(game, spriteBatch, pos);
                 l.Show();
                 game.Components.Add(l);
                 Shared.laserList.Add(l);
@@ -98,7 +95,7 @@ namespace AdelongFinalProject
         {
             spriteBatch.Begin();
 
-            spriteBatch.Draw(tex, Shared.shipPos, Color.White);
+            spriteBatch.Draw(tex, /*Shared.shipPos*/pos, Color.White);
 
             spriteBatch.End();
 

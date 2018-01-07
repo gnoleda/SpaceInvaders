@@ -13,41 +13,23 @@ namespace AdelongFinalProject
     class CollisionManager : GameComponent
     {
         private Alien alien;
-        private Ship ship;
         private SoundEffect hitSound;
         private Explosion explosion;
 
         public CollisionManager(Game game,
             Alien alien,
-            Ship ship,
+            //Ship ship,
             SoundEffect hitSound,
             Explosion explosion
             ) : base(game)
         {
             this.alien = alien;
-            this.ship = ship;
             this.hitSound = hitSound;
             this.explosion = explosion;
         }
 
         public override void Update(GameTime gameTime)
         {
-            //alien collision with ship
-            for (int i = 0; i < Shared.alienList.Count; i++)
-            {
-                if(Shared.alienList[i].Enabled)
-                {
-                    if(Shared.alienList[i].getBound().Intersects(ship.getBound()))
-                    {
-                        hitSound.Play();
-                        explosion.Position = new Vector2(Shared.alienList[i].getBound().X, ship.getBound().Y);
-                        explosion.StartAnimation();
-                        ship.Hide();
-                        alien.StopAllAliens();
-
-                    }
-                }
-            }
 
             //laser collision with alien
             if(Shared.laserList != null)
@@ -76,8 +58,7 @@ namespace AdelongFinalProject
                     }
 
                 }
-            }
-            
+            }            
            
             base.Update(gameTime);
         }
