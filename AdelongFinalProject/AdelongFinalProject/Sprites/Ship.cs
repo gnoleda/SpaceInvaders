@@ -14,7 +14,7 @@ namespace AdelongFinalProject
     {
         private SpriteBatch spriteBatch;
         public Vector2 pos;
-        private Vector2 speed;
+        public Vector2 speed;
         private Texture2D tex;
         private Game1 game;
         private SoundEffect laserSound;
@@ -30,6 +30,7 @@ namespace AdelongFinalProject
             this.spriteBatch = spriteBatch;
             this.tex = tex;
             this.pos = shipPos;
+           // this.pos = shipPos;
             //Shared.shipPos = new Vector2(Shared.stage.X / 2 - tex.Width / 2, Shared.stage.Y - tex.Height);
             speed = new Vector2(4, 0);
             laserSound = game.Content.Load<SoundEffect>("sounds/shoot");
@@ -57,24 +58,24 @@ namespace AdelongFinalProject
         {
 
             KeyboardState ks = Keyboard.GetState();
-            if (ks.IsKeyDown(Keys.Right))
-            {
-                //we add the x and y components of pos and speed together. 
-                //because the y variable of speed is 0, the ship never goes up.
-                pos += speed;
-                if (pos.X > Shared.stage.X - tex.Width)
-                {
-                    pos.X = Shared.stage.X - tex.Width;
-                }
-            }
-            if (ks.IsKeyDown(Keys.Left))
-            {
-                pos -= speed;
-                if (pos.X < 0)
-                {
-                    pos.X = 0;
-                }
-            }
+            //if (ks.IsKeyDown(Keys.Right))
+            //{
+            //    //we add the x and y components of pos and speed together. 
+            //    //because the y variable of speed is 0, the ship never goes up.
+            //    pos += speed;
+            //    if (pos.X > Shared.stage.X - tex.Width)
+            //    {
+            //        pos.X = Shared.stage.X - tex.Width;
+            //    }
+            //}
+            //if (ks.IsKeyDown(Keys.Left))
+            //{
+            //    pos -= speed;
+            //    if (pos.X < 0)
+            //    {
+            //        pos.X = 0;
+            //    }
+            //}
 
             if (ks.IsKeyDown(Keys.Space) && oldState.IsKeyUp(Keys.Space))
             {
