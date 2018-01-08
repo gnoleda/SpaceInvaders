@@ -13,27 +13,14 @@ namespace AdelongFinalProject
     {
         private SpriteBatch spriteBatch;
         private Texture2D tex;
-        private Vector2 pos;
-        private Vector2 speed;
-
-        //public Laser(Game game,
-        //    SpriteBatch spriteBatch,
-        //    Texture2D tex) : base(game)
-        //{
-        //    this.spriteBatch = spriteBatch;
-        //    this.tex = tex;
-        //    pos = new Vector2(Shared.shipPos.X + Shared.shipTex.Width / 2 - tex.Width / 2, Shared.shipPos.Y - tex.Height);
-        //    speed = new Vector2(0, 10);
-        //}
+        private Vector2 pos, speed;
 
         public Laser(Game game, SpriteBatch spriteBatch, Vector2 shipPos) : base(game)
         {
             this.spriteBatch = spriteBatch;
             this.tex = ((Game1)game).Content.Load<Texture2D>("images/shipLaser");
             this.pos = new Vector2 (shipPos.X + Shared.shipTex.Width / 2 - tex.Width, shipPos.Y - tex.Height);
-                /*new Vector2(Shared.shipPos.X + Shared.shipTex.Width / 2 - tex.Width / 2, Shared.shipPos.Y - tex.Height);*/
-            speed = new Vector2(0, 10);
-            
+            speed = new Vector2(0, 10);            
         }
 
         public virtual void Show()
@@ -51,7 +38,6 @@ namespace AdelongFinalProject
         public Rectangle getBound()
         {
             return new Rectangle((int)pos.X, (int)pos.Y, tex.Width, tex.Height);
-
         }
 
         public override void Update(GameTime gameTime)

@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Collisions\CollisionManager.cs" />
     <Compile Include="Collisions\CollisionManagerShip.cs" />
-    <Compile Include="Explosions\ExplosionShip.cs" />
     <Compile Include="Explosions\Explosion.cs" />
     <Compile Include="Scenes\AboutScene.cs" />
     <Compile Include="Scenes\ActionScene.cs" />

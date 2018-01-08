@@ -4,7 +4,6 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alien.png</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alien1.png</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alien3.png</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/title.png</File>
@@ -19,7 +18,6 @@
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/alienExplosion.png</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/shoot.wav</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/invaderkilled.wav</File>
-    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/explosionPlayer.wav</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/helpBackground.PNG</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/fonts/scoreFont.spritefont</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/aboutBackground.PNG</File>
@@ -30,5 +28,8 @@
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/shipHitSound.wav</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/level2WinBackground.PNG</File>
     <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/winBackground.PNG</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/images/level2Background.png</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/action2Theme.mp3</File>
+    <File>C:/Users/aubre_000/Documents/Git/SpaceInvaders/AdelongFinalProject/AdelongFinalProject/Content/sounds/explosionPlayer.wav</File>
   </SourceFiles>
 </SourceFileCollection>

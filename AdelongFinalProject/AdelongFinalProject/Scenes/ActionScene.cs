@@ -17,9 +17,9 @@ namespace AdelongFinalProject
         private Ship ship;
         private Vector2 pos, shipPos;
         private SoundEffect hitSound, shipHitSound;
-        KeyboardState ks = Keyboard.GetState();
+        private Game1 game;
+        private Explosion alienExplosion;
 
-        // private List<Alien> alienList;
         private const int ROW = 3;
         private const int COL = 5;
         private const int NUM_ALIENS = 5;
@@ -27,15 +27,14 @@ namespace AdelongFinalProject
         private const int ALIEN1_DELAY = 20;
         private const int ALIEN2_DELAY = 22;
         private const int ALIEN3_DELAY = 24;
-        private Game1 game;
-        private Explosion alienExplosion;
-        //private ExplosionShip shipExplosion;
 
         //score
         private Score score;
         private SpriteFont scoreFont;
         private float scoreNew = 0;
         private Vector2 scorePos;
+
+        KeyboardState ks = Keyboard.GetState();
 
         public ActionScene(Game game,
             SpriteBatch spriteBatch) : base(game)
@@ -51,7 +50,7 @@ namespace AdelongFinalProject
             //score
             scorePos = new Vector2(10, 2);
             scoreFont = game.Content.Load<SpriteFont>("fonts/scoreFont");
-            score = new Score(game, spriteBatch, scoreFont, scorePos/*, scoreString*/);
+            score = new Score(game, spriteBatch, scoreFont, scorePos);
 
             //alien1
             Shared.alien1Tex = game.Content.Load<Texture2D>("images/alien1");
@@ -95,7 +94,7 @@ namespace AdelongFinalProject
             Shared.alien3Pos = new Vector2(0, Shared.alien2Pos.Y + Shared.alien1Tex.Height + Shared.ALIEN_SPACING);
 
             //changed spped
-            Shared.alienSpeed = new Vector2(4f, 0);
+            Shared.alienSpeed = new Vector2(3.7f, 0);
 
             //green alien
             for (int i = 0; i < NUM_ALIENS_L2; i++)
@@ -105,7 +104,7 @@ namespace AdelongFinalProject
                 Alien a = new Alien(game, spriteBatch, pos, Shared.alien1Tex, ALIEN1_DELAY, Shared.alienSpeed);
                 a.Show();
                 CollisionManager cm = new CollisionManager(game, a, hitSound, alienExplosion);
-                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound/*, shipExplosion*/);
+                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound);
 
                 this.Components.Add(cm);
                 this.Components.Add(cmShip);
@@ -122,7 +121,7 @@ namespace AdelongFinalProject
                 Alien a = new Alien(game, spriteBatch, pos, Shared.alien2Tex, ALIEN2_DELAY, Shared.alienSpeed);
                 a.Show();
                 CollisionManager cm = new CollisionManager(game, a, hitSound, alienExplosion);
-                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound/*, shipExplosion*/);
+                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound);
 
                 this.Components.Add(cm);
                 this.Components.Add(cmShip);
@@ -140,7 +139,7 @@ namespace AdelongFinalProject
                 a.Show();
 
                 CollisionManager cm = new CollisionManager(game, a, hitSound, alienExplosion);
-                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound/*, shipExplosion*/);
+                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound);
 
                 this.Components.Add(cm);
                 this.Components.Add(cmShip);
@@ -176,7 +175,7 @@ namespace AdelongFinalProject
                 Alien a = new Alien(game, spriteBatch, pos, Shared.alien1Tex, ALIEN1_DELAY, Shared.alienSpeed);
                 a.Show();
                 CollisionManager cm = new CollisionManager(game, a, hitSound, alienExplosion);
-                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound/*, shipExplosion*/);
+                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound);
 
                 this.Components.Add(cm);
                 this.Components.Add(cmShip);
@@ -193,7 +192,7 @@ namespace AdelongFinalProject
                 Alien a = new Alien(game, spriteBatch, pos, Shared.alien2Tex, ALIEN2_DELAY, Shared.alienSpeed);
                 a.Show();
                 CollisionManager cm = new CollisionManager(game, a, hitSound, alienExplosion);
-                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound/*, shipExplosion*/);
+                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound);
 
                 this.Components.Add(cm);
                 this.Components.Add(cmShip);
@@ -211,7 +210,7 @@ namespace AdelongFinalProject
                 a.Show();
 
                 CollisionManager cm = new CollisionManager(game, a, hitSound, alienExplosion);
-                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound/*, shipExplosion*/);
+                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound);
 
                 this.Components.Add(cm);
                 this.Components.Add(cmShip);
@@ -271,23 +270,16 @@ namespace AdelongFinalProject
             }
         }
 
-        public void Level2()
-        {
-            //reset ship pos
-            ship.pos = new Vector2(Shared.stage.X / 2 - Shared.shipTex.Width / 2, Shared.stage.Y - Shared.shipTex.Height);
-
-            Shared.deadAlienCount = 0;
-
-            CreateLevel2Aliens();
-
-        }
-
         public void ResetValuesToLevel1() //referenced by game1
         {
             //reset score
             int initScore = 0;
             score.Value = "SCORE: " + initScore;
             scoreNew = 0;
+
+            //explosion and lasers end
+            alienExplosion.StopAnimation();
+
 
             //reset ship pos
             ship.pos = new Vector2(Shared.stage.X / 2 - Shared.shipTex.Width / 2, Shared.stage.Y - Shared.shipTex.Height);

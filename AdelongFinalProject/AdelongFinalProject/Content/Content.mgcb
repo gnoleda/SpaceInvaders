@@ -13,18 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin images/alien.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:images/alien.png
-
 #begin images/alien1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -159,12 +147,6 @@
 /processorParam:Quality=Best
 /build:sounds/invaderkilled.wav
 
-#begin sounds/explosionPlayer.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:sounds/explosionPlayer.wav
-
 #begin images/helpBackground.PNG
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -268,4 +250,28 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:images/winBackground.PNG
+
+#begin images/level2Background.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/level2Background.png
+
+#begin sounds/action2Theme.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:sounds/action2Theme.mp3
+
+#begin sounds/explosionPlayer.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/explosionPlayer.wav
 

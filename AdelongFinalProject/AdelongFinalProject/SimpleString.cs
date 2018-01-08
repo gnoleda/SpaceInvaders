@@ -15,7 +15,6 @@ namespace AdelongFinalProject
         private SpriteFont spriteFont;
         public Vector2 Position { get; set; }
         public string Value { get; set; }
-        //private Color color;
 
         public SimpleString(Game game,
             SpriteBatch spriteBatch,
@@ -29,7 +28,6 @@ namespace AdelongFinalProject
             this.spriteFont = spriteFont;
             Position = pos;
             Value = value;
-            //color = Color.Red;
         }
 
         public override void Update(GameTime gameTime)

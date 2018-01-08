@@ -22,7 +22,6 @@ namespace AdelongFinalProject
             SpriteBatch spriteBatch,
             SpriteFont spriteFont,
             Vector2 pos
-            //string value
             ) : base(game)
 
         {
@@ -30,7 +29,6 @@ namespace AdelongFinalProject
             this.spriteFont = spriteFont;
             Position = pos;
             Value = "SCORE: " + initScore;
-            //Value = "SCORE: " + Shared.scoreValue;
             color = Color.Red;
         }
 
@@ -41,7 +39,6 @@ namespace AdelongFinalProject
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
-
 
              spriteBatch.DrawString(spriteFont, Value, Position, Color.Red);
 

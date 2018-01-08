@@ -23,9 +23,7 @@ namespace AdelongFinalProject
         public static List<Laser> laserList;
         public static List<Alien> alienList;
         public static int deadAlienCount, deadAlienCountLevel2;
-        public static bool isLevel1Completed;
         public static bool isShipDestroyed;
         public static float scoreValue;
-
     }
 }

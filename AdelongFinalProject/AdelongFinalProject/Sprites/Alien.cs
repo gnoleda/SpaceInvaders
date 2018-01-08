@@ -13,10 +13,7 @@ namespace AdelongFinalProject
     {
         private SpriteBatch spriteBatch;
         private Texture2D tex;
-        private Vector2 pos;
-        private Vector2 speed;
-        private Vector2 dimension;
-        
+        private Vector2 pos, speed, dimension;        
 
         //create frames
         private int frameIndex = 0;
@@ -32,7 +29,6 @@ namespace AdelongFinalProject
             int delay,
             Vector2 speed) : base(game)
         {
-            //this.game = (Game1)game;
             this.spriteBatch = spriteBatch;
             this.pos = pos;
             this.tex = tex;
@@ -42,7 +38,6 @@ namespace AdelongFinalProject
             
             this.Show();
             CreateFrames();
-
         }
 
         public void StopAllAliens()
@@ -109,11 +104,8 @@ namespace AdelongFinalProject
                 if (frameIndex > ROW * COL - 1)//if it reaches the highest index, it stops itself
                 {
                     frameIndex = 0;
-                    //frameIndex =  -1; //designates its not a valid index
-                    //stopAnimation();
                 }
-                delayCounter = 0;
-                
+                delayCounter = 0;                
             }
             
             //make sure aliens dont go below bottom

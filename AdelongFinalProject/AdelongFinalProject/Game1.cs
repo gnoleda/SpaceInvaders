@@ -21,18 +21,16 @@ namespace AdelongFinalProject
         private WinScene winScene, loseScene;
 
         private bool isLevel2 = false;
-        //reset shit
 
-        private Texture2D startBackground, actionBackground, helpBackground, winBackground, aboutBackground, loseBackground, level2WinBackground;
-        private Song menuTheme, actionTheme;
-        //private const int TOTAL_ALIENS = 15;
-
-        //score
+        private Texture2D startBackground, actionBackground, 
+            helpBackground, winBackground, aboutBackground, 
+            loseBackground, level2WinBackground, actionScene2Background;
+        private Song menuTheme, actionTheme, action2Theme;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            //graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
         }
 
@@ -48,7 +46,6 @@ namespace AdelongFinalProject
             //initializes the super global variable
             //Shared stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             Shared.stage = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
-
 
             base.Initialize();
         }
@@ -92,11 +89,13 @@ namespace AdelongFinalProject
             winBackground = Content.Load<Texture2D>("images/winBackground");
             aboutBackground = Content.Load<Texture2D>("images/aboutBackground");
             loseBackground = Content.Load<Texture2D>("images/loseBackground");
+            actionScene2Background = Content.Load<Texture2D>("images/level2Background");
             level2WinBackground = Content.Load<Texture2D>("images/level2WinBackground");
 
             //sounds
             menuTheme = Content.Load<Song>("sounds/menuTheme");
             actionTheme = Content.Load<Song>("sounds/actionTheme");
+            action2Theme = Content.Load<Song>("sounds/action2Theme");
 
             Components.Add(startScene);
             Components.Add(actionScene);
@@ -107,7 +106,7 @@ namespace AdelongFinalProject
 
             //enable only one start scene
             startScene.Show();
-            StartMusic();
+            MediaPlayer.Play(menuTheme);
         }
 
         /// <summary>
@@ -121,14 +120,18 @@ namespace AdelongFinalProject
 
         public void StartMusic()
         {
-            if (startScene.Enabled || aboutScene.Enabled || helpScene.Enabled || winScene.Enabled)
-            {
-                MediaPlayer.Play(menuTheme);
-            }
             if (actionScene.Enabled)
             {
                 MediaPlayer.Stop();
-                MediaPlayer.Play(actionTheme);
+
+                if(isLevel2)
+                {
+                    MediaPlayer.Play(action2Theme);
+                }
+                else
+                {
+                    MediaPlayer.Play(actionTheme);
+                }
             }
 
             MediaPlayer.IsRepeating = true;
@@ -164,13 +167,11 @@ namespace AdelongFinalProject
                 {
                     HideAllScenes();
                     helpScene.Show();
-                    StartMusic();
                 }
                 else if (selectedIndex == 2 && ks.IsKeyDown(Keys.Enter))
                 {
                     HideAllScenes();
                     aboutScene.Show();
-                    StartMusic();
                 }
                 else if (selectedIndex == 3 && ks.IsKeyDown(Keys.Enter))
                 {
@@ -181,19 +182,17 @@ namespace AdelongFinalProject
             //winScrene
             if (!winScene.Enabled && Shared.deadAlienCount != 0)
             {
-                //level2
-                if(Shared.TOTAL_ALIENS_L2 == Shared.deadAlienCount && isLevel2)
+                ////level2 win scene
+                if (Shared.TOTAL_ALIENS_L2 == Shared.deadAlienCount && isLevel2)
                 {
                     HideAllScenes();
                     winScene.Show();
-                    StartMusic();
                 }
-                //level1
+                //level1 win scene
                 if (Shared.TOTAL_ALIENS == Shared.deadAlienCount && !isLevel2)
                 {
                     HideAllScenes();
                     winScene.Show();
-                    StartMusic();
                 }
             }
 
@@ -203,20 +202,27 @@ namespace AdelongFinalProject
                 HideAllScenes();
                 loseScene.Show();
                 Shared.isShipDestroyed = false;
-
             }
 
-            if (ks.IsKeyDown(Keys.Escape) && !startScene.Enabled)
+            //exit win/lose/action scene and reset values
+            if(winScene.Enabled && ks.IsKeyDown(Keys.Escape) || actionScene.Enabled && ks.IsKeyDown(Keys.Escape)
+                || loseScene.Enabled && ks.IsKeyDown(Keys.Escape))
+            {
+                MediaPlayer.Stop();
+                MediaPlayer.Play(menuTheme);
+                HideAllScenes();
+                startScene.Show();
+                actionScene.ResetValuesToLevel1();
+            }
+            //return to startscene afert help/about
+            if (helpScene.Enabled && ks.IsKeyDown(Keys.Escape) || aboutScene.Enabled && ks.IsKeyDown(Keys.Escape))
             {
                 HideAllScenes();
                 startScene.Show();
-                StartMusic();
-                actionScene.ResetValuesToLevel1();
-
             }
 
-            //level2
-            if(winScene.Enabled && ks.IsKeyDown(Keys.Y))
+            //enabled level 2
+            if (winScene.Enabled && ks.IsKeyDown(Keys.Y))
             {
                 isLevel2 = true;
                 winScene.Hide();
@@ -245,7 +251,14 @@ namespace AdelongFinalProject
             }
             else if (actionScene.Enabled)
             {
-                spriteBatch.Draw(actionBackground, Vector2.Zero, Color.White);
+                if(isLevel2)
+                {
+                    spriteBatch.Draw(actionScene2Background, Vector2.Zero, Color.White);
+                }
+                else
+                {
+                    spriteBatch.Draw(actionBackground, Vector2.Zero, Color.White);
+                }
             }
             else if (aboutScene.Enabled)
             {

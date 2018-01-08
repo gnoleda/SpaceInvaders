@@ -36,7 +36,6 @@ C:\Users\aubre_000\Desktop\AdelongFinalProject\AdelongFinalProject\bin\Windows\x
 C:\Users\aubre_000\Desktop\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\sounds\menuTheme2.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\fonts\hilightFont.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\fonts\menuFont.xnb
-C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\alien.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\alien1.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\alien2.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\alien3.xnb
@@ -205,3 +204,6 @@ C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalP
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\shipExplosion.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\sounds\shipHitSound.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\level2WinBackground.xnb
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\level2Background.xnb
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\sounds\action2Theme.wma
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\sounds\action2Theme.xnb
