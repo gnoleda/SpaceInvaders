@@ -107,13 +107,16 @@ namespace AdelongFinalProject
                 }
                 delayCounter = 0;                
             }
-            
-            //make sure aliens dont go below bottom
-            if(pos.Y + tex.Height >= Shared.stage.Y)
-            {
-                pos.Y = Shared.stage.Y - tex.Height;
+
+            //so yellow alien doesnt overlap other aliens with hits bottom of screen
+            if(!Shared.isLevel2)
+            {            //bottom screen
+                if (pos.Y + tex.Height >= Shared.stage.Y)
+                {
+                    pos.Y = Shared.stage.Y - tex.Height;
+                }
             }
-            
+                        
             base.Update(gameTime);
         }
 

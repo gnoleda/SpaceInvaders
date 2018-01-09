@@ -20,8 +20,6 @@ namespace AdelongFinalProject
         private HelpScene helpScene;
         private WinScene winScene, loseScene;
 
-        private bool isLevel2 = false;
-
         private Texture2D startBackground, actionBackground, 
             helpBackground, winBackground, aboutBackground, 
             loseBackground, level2WinBackground, actionScene2Background;
@@ -118,13 +116,21 @@ namespace AdelongFinalProject
             // TODO: Unload any non ContentManager content here
         }
 
+        public void HideLasers()
+        {
+            for (int i = 0; i < Shared.laserList.Count; i++)
+            {
+                Shared.laserList[i].Hide();
+            }
+        }
+
         public void StartMusic()
         {
             if (actionScene.Enabled)
             {
                 MediaPlayer.Stop();
 
-                if(isLevel2)
+                if(Shared.isLevel2)
                 {
                     MediaPlayer.Play(action2Theme);
                 }
@@ -158,7 +164,7 @@ namespace AdelongFinalProject
 
                 if (selectedIndex == 0 && ks.IsKeyDown(Keys.Enter))
                 {
-                    isLevel2 = false;
+                    Shared.isLevel2 = false;
                     HideAllScenes();
                     actionScene.Show();
                     StartMusic();
@@ -183,14 +189,16 @@ namespace AdelongFinalProject
             if (!winScene.Enabled && Shared.deadAlienCount != 0)
             {
                 ////level2 win scene
-                if (Shared.TOTAL_ALIENS_L2 == Shared.deadAlienCount && isLevel2)
+                if (Shared.TOTAL_ALIENS_L2 == Shared.deadAlienCount && Shared.isLevel2)
                 {
+                    HideLasers();
                     HideAllScenes();
                     winScene.Show();
                 }
                 //level1 win scene
-                if (Shared.TOTAL_ALIENS == Shared.deadAlienCount && !isLevel2)
+                if (Shared.TOTAL_ALIENS == Shared.deadAlienCount && !Shared.isLevel2)
                 {
+                    HideLasers();
                     HideAllScenes();
                     winScene.Show();
                 }
@@ -224,12 +232,12 @@ namespace AdelongFinalProject
             //enabled level 2
             if (winScene.Enabled && ks.IsKeyDown(Keys.Y))
             {
-                isLevel2 = true;
+                Shared.isLevel2 = true;
                 winScene.Hide();
                 actionScene.Show();
                 StartMusic();
                 actionScene.CreateLevel2Aliens();
-            }
+            }            
 
             base.Update(gameTime);
         }
@@ -251,7 +259,7 @@ namespace AdelongFinalProject
             }
             else if (actionScene.Enabled)
             {
-                if(isLevel2)
+                if(Shared.isLevel2)
                 {
                     spriteBatch.Draw(actionScene2Background, Vector2.Zero, Color.White);
                 }
@@ -270,7 +278,7 @@ namespace AdelongFinalProject
             }
             else if (winScene.Enabled)
             {
-                if (isLevel2)//level2 win scene
+                if (Shared.isLevel2)//level2 win scene
                 {
                     spriteBatch.Draw(level2WinBackground, Vector2.Zero, Color.White);
                 }

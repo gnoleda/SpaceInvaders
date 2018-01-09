@@ -23,7 +23,7 @@ namespace AdelongFinalProject
         private const int ROW = 3;
         private const int COL = 5;
         private const int NUM_ALIENS = 5;
-        private const int NUM_ALIENS_L2 = 8;
+        private const int NUM_ALIENS_L2 = 6;
         private const int ALIEN1_DELAY = 20;
         private const int ALIEN2_DELAY = 22;
         private const int ALIEN3_DELAY = 24;
@@ -56,6 +56,7 @@ namespace AdelongFinalProject
             Shared.alien1Tex = game.Content.Load<Texture2D>("images/alien1");
             Shared.alien2Tex = game.Content.Load<Texture2D>("images/alien2");
             Shared.alien3Tex = game.Content.Load<Texture2D>("images/alien3");
+            Shared.alien4Tex = game.Content.Load<Texture2D>("images/alien4");
             Shared.alienSpeed = new Vector2(2.5f, 0);
             Shared.alienList = new List<Alien>();
 
@@ -88,10 +89,14 @@ namespace AdelongFinalProject
                 Shared.deadAlienCount = 0;
             }
 
+            //reset ship pos
+            ship.pos = new Vector2(Shared.stage.X / 2 - Shared.shipTex.Width / 2, Shared.stage.Y - Shared.shipTex.Height);
+
             //also make multiple collision managers here for each alien.
             Shared.alien1Pos = new Vector2(0, Shared.alien1Tex.Height);
             Shared.alien2Pos = new Vector2(0, Shared.alien1Pos.Y + Shared.alien1Tex.Height + Shared.ALIEN_SPACING);
             Shared.alien3Pos = new Vector2(0, Shared.alien2Pos.Y + Shared.alien1Tex.Height + Shared.ALIEN_SPACING);
+            Shared.alien4Pos = new Vector2(0, Shared.alien3Pos.Y + Shared.alien1Tex.Height + Shared.ALIEN_SPACING);
 
             //changed spped
             Shared.alienSpeed = new Vector2(3.7f, 0);
@@ -147,6 +152,24 @@ namespace AdelongFinalProject
                 Shared.alienList.Add(a);
 
                 Shared.alien3Pos.X += Shared.ALIEN_SPACING + Shared.alien3Tex.Width;
+            }
+            //yellow alien
+            for (int i = 0; i < NUM_ALIENS_L2; i++)
+            {
+                pos = Shared.alien4Pos;
+
+                Alien a = new Alien(game, spriteBatch, pos, Shared.alien4Tex, ALIEN1_DELAY, Shared.alienSpeed);
+                a.Show();
+
+                CollisionManager cm = new CollisionManager(game, a, hitSound, alienExplosion);
+                CollisionManagerShip cmShip = new CollisionManagerShip(game, a, ship, shipHitSound);
+
+                this.Components.Add(cm);
+                this.Components.Add(cmShip);
+                this.Components.Add(a);
+                Shared.alienList.Add(a);
+
+                Shared.alien4Pos.X += Shared.ALIEN_SPACING + Shared.alien4Tex.Width;
             }
         }
 
@@ -280,8 +303,9 @@ namespace AdelongFinalProject
             //explosion and lasers end
             alienExplosion.StopAnimation();
 
-
             //reset ship pos
+            ship.Show();
+            Shared.isShipDestroyed = false;
             ship.pos = new Vector2(Shared.stage.X / 2 - Shared.shipTex.Width / 2, Shared.stage.Y - Shared.shipTex.Height);
 
             //reset aliens

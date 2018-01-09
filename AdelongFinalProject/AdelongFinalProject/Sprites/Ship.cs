@@ -57,7 +57,7 @@ namespace AdelongFinalProject
             KeyboardState ks = Keyboard.GetState();
 
             if (ks.IsKeyDown(Keys.Space) && oldState.IsKeyUp(Keys.Space))
-            {
+            { 
                 laserSound.Play();
                 Laser l = new Laser(game, spriteBatch, pos);
                 l.Show();
@@ -66,6 +66,12 @@ namespace AdelongFinalProject
             }
 
             oldState = ks;            
+
+            //if win or lose scene is up, hide lasers
+            //if(Shared.winScene.Enabled || Shared.loseScene.Enabled)
+            //{
+            //    las
+            //}
 
             base.Update(gameTime);
         }

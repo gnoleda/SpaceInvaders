@@ -15,19 +15,16 @@ namespace AdelongFinalProject
         private Alien alien;
         private Ship ship;
         private SoundEffect hitSound;
-        //private ExplosionShip explosion;
 
         public CollisionManagerShip(Game game,
             Alien alien,
             Ship ship,
             SoundEffect hitSound
-            //ExplosionShip explosion
             ) : base(game)
         {
             this.alien = alien;
             this.ship = ship;
             this.hitSound = hitSound;
-            //this.explosion = explosion;
         }
 
         public override void Update(GameTime gameTime)
@@ -41,8 +38,6 @@ namespace AdelongFinalProject
                     {
                         Shared.isShipDestroyed = true;
                         hitSound.Play();
-                        //explosion.Position = new Vector2(ship.getBound().X /*+ Shared.shipTex.Width /2*/, ship.getBound().Y );
-                        //explosion.StartAnimation();
                         ship.Hide();
                         alien.StopAllAliens();
                     }

@@ -207,3 +207,4 @@ C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalP
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\level2Background.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\sounds\action2Theme.wma
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\sounds\action2Theme.xnb
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Debug\Content\images\alien4.xnb
