@@ -4,7 +4,6 @@ C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalP
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Release\Content\fonts\scoreFont.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Release\Content\images\aboutBackground.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Release\Content\images\actionBackground.xnb
-C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Release\Content\images\alien.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Release\Content\images\alien1.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Release\Content\images\alien2.xnb
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Release\Content\images\alien3.xnb
@@ -52,3 +51,9 @@ C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalP
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\obj\x86\Release\AdelongFinalProject.csproj.CoreCompileInputs.cache
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\obj\x86\Release\AdelongFinalProject.exe
 C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\obj\x86\Release\AdelongFinalProject.pdb
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Release\Content\images\alien4.xnb
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\obj\x86\Release\AdelongFinalProject.csprojResolveAssemblyReference.cache
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Release\AdelongFinalProject.exe.manifest
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\bin\Windows\x86\Release\AdelongFinalProject.application
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\obj\x86\Release\AdelongFinalProject.exe.manifest
+C:\Users\aubre_000\Documents\Git\SpaceInvaders\AdelongFinalProject\AdelongFinalProject\obj\x86\Release\AdelongFinalProject.application

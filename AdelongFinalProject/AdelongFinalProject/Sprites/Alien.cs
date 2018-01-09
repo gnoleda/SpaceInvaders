@@ -114,8 +114,7 @@ namespace AdelongFinalProject
                 if (pos.Y + tex.Height >= Shared.stage.Y)
                 {
                     pos.Y = Shared.stage.Y - tex.Height;
-                }
-            }
+                }            }
                         
             base.Update(gameTime);
         }
